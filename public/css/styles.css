@@ -20,6 +20,7 @@ body{
     height:100vh; 
     color: aliceblue;
     text-align: center;
+    width: 50%;
 }
 
 .right{
@@ -30,6 +31,7 @@ body{
     background-color:white; 
     color: black;
     text-align: center;
+    width: 50%;
 }
 
 button{
@@ -39,9 +41,23 @@ button{
     font-family: inherit;
     font-size: large;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .right> button{
     background-color: black;
     color: white;
+}
+
+.logo_div{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    /* z-index: 1; */
+}
+.logo{
+    position: absolute;
+    /* z-index: 1; */
+    width: 150px;
+    height: 150px;
 }
