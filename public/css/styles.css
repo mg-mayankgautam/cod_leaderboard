@@ -44,9 +44,16 @@ button{
     cursor: pointer;
 }
 
+button:hover{
+    background-color: darkgrey;
+}
+
 .right> button{
     background-color: black;
     color: white;
+}
+.right> button:hover{
+        background-color: rgb(22, 23, 32);
 }
 
 .logo_div{
@@ -58,6 +65,6 @@ button{
 .logo{
     position: absolute;
     /* z-index: 1; */
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
 }
