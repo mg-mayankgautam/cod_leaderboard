@@ -1,0 +1,9 @@
+
+
+.container{display: flex;}
+.left{background-color: black; width:100vh; height:100vh; color: aliceblue;
+}
+
+.right{background-color:green; width: 100vh}
+
+.h1{color: aliceblue;}
