@@ -21,7 +21,29 @@ body{
     color: aliceblue;
     text-align: center;
     width: 50%;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    transition:  250ms;    
 }
+
+/* .left:hover{
+    right:100px;
+    left:100px;     
+    width: 60%;} */
+
+.leftExpand{
+    width: 100%;
+}
+
+.rightCollapse{width:0%;}
+
+.rightExpand{
+    width: 100%;
+}
+
+.leftCollapse{width:0%;}
 
 .right{
     display: flex;
@@ -32,7 +54,12 @@ body{
     color: black;
     text-align: center;
     width: 50%;
+    transition:  250ms;    
 }
+
+/* .right:hover{
+    width: 60%;
+} */
 
 button{
     padding: 15px 15px;
