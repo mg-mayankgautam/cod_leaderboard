@@ -9,6 +9,7 @@ body{
 .container{
     display: flex;
     width: 100vw;
+    height: 100vh;
 }
 
 .left{
@@ -17,7 +18,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: black;
-    height:100vh; 
+    /* height:100vh;  */
     color: aliceblue;
     text-align: center;
     width: 50%;
@@ -27,7 +28,22 @@ body{
     left:0;
     transition:  250ms;    
 }
-
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white; 
+    color: black;
+    text-align: center;
+    width: 50%;
+    z-index: 10;
+    /* top:0;
+    bottom:0;
+    right:0;
+    left:0; */
+    transition:  250ms;    
+}
 /* .left:hover{
     right:100px;
     left:100px;     
@@ -45,17 +61,7 @@ body{
 
 .leftCollapse{width:0%;}
 
-.right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color:white; 
-    color: black;
-    text-align: center;
-    width: 50%;
-    transition:  250ms;    
-}
+
 
 /* .right:hover{
     width: 60%;

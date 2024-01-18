@@ -21,6 +21,21 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const landingpageRouter = require('./routes/landingpage.js');
+
+
+app.use('/', landingpageRouter);
+
+
+// app.get('/rankings', (req, res ) =>{
+
+//     console.log('inside get');
+//     res.send('some ranking data')
+// })
+
+
+
 app.listen(PORT, () => {
     console.log(`http://localhost:` + PORT);
 })

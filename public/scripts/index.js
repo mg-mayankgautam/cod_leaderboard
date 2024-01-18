@@ -11,13 +11,27 @@ left_btn.addEventListener('click', ()=>
 
 })
 
-right_btn.addEventListener('click', ()=>
+right_btn.addEventListener('click', async ()=>
 {
     right_btn.parentNode.classList.add('rightExpand');
     left_btn.parentNode.classList.add('leftCollapse');
     left_btn.parentNode.style.display='none';
 
-    console.log('left btn clicked');
+    
+    
+    try {
+        let  data  = await axios.get('/rankings');
+        //newTask will be recieved in app.js
+        console.log(data);//data is the response recieved from app.js,through get request.
+       
+				 // addToList(data);//send the recieved data to function to display on page
+    }
+    catch (err) {
+        console.log(err);
+    }  
+     
+
+
 })
 
 
@@ -27,3 +41,8 @@ right_btn.addEventListener('click', ()=>
 // container.addEventListener('click', ()=>{
 
 // })
+
+
+
+
+
