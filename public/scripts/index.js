@@ -1,23 +1,39 @@
 
 const left_btn= document.querySelector('.left_btn');
 const right_btn= document.querySelector('.right_btn');
-console.log(left_btn);
+const logo= document.querySelector('.logo');
+console.log(logo)
 
 left_btn.addEventListener('click', ()=>
 {
     left_btn.parentNode.classList.add('leftExpand');
     right_btn.parentNode.classList.add('rightCollapse');
-    right_btn.parentNode.style.display='none';
+      
+    logo.classList.add('rotate');
+    right_btn.parentNode.innerHTML='';
+    left_btn.parentNode.innerHTML='';
 
+    // left_btn.parentNode.innerHTML="coming soon";
+    const h1 = document.createElement('h1');
+    h1.innerText="Coming Soon";
+    h1.classList.add('slide');
+    // left_btn.parentNode.appendChild(h1);
+    
 })
 
-right_btn.addEventListener('click', async ()=>
-{
-    right_btn.parentNode.classList.add('rightExpand');
-    left_btn.parentNode.classList.add('leftCollapse');
-    left_btn.parentNode.style.display='none';
-
+right_btn.addEventListener('click', async ()=>{
     
+    
+    
+    right_btn.parentNode.classList.add('rightExpand');
+    left_btn.parentNode.classList.add('rightCollapse');   
+    
+    left_btn.parentNode.innerHTML='';
+
+    logo.classList.add('rotate');  
+
+      
+    right_btn.parentNode.innerHTML='';
     
     try {
         let  data  = await axios.get('/rankings');

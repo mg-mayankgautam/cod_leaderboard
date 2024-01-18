@@ -28,12 +28,9 @@ body{
     bottom:0;
     right:0;
     left:0;
-<<<<<<< HEAD
-    transition:  900ms;    
-=======
-    transition: width 250ms ease-in-out;    
->>>>>>> c7a39f0e63d56c32133e55712b182d39bf84128b
+    transition:  250ms ease-in-out;    
 }
+
 .right{
     display: flex;
     flex-direction: column;
@@ -43,37 +40,27 @@ body{
     color: black;
     text-align: center;
     width: 50%;
-    /* z-index: 10; */
-    /* top:0;
-    bottom:0;
-    right:0;
-    left:0; */
-<<<<<<< HEAD
-    /* transition:  250ms;  */
-    transition: width 2000ms ease-in-out;   
-=======
+    height: 100%;
     transition: width 250ms ease-in-out;    
->>>>>>> c7a39f0e63d56c32133e55712b182d39bf84128b
 }
 
-/* .left:hover{
-    right:100px;
-    left:100px;     
-    width: 60%;} */
 
 .leftExpand{
     width: 100%;
-    /* transform: translateX(50%); */
 }
 
-.rightCollapse{width:0%;}
+.rightCollapse{
+    width:0%;
+}
 
 .rightExpand{
     width: 100%;
-    /* z-index: 10; */
+   
 }
 
-.leftCollapse{width:0%;}
+.leftCollapse{
+    width:0%;
+    }
 
 
 
@@ -115,3 +102,20 @@ button:hover{
     width: 160px;
     height: 160px;
 }
+
+.logo.rotate{
+    animation: rotation 1200ms infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+/* .slide{
+    transform: translateY(50%);
+    transition: transform 200ms ease-in-out;
+} */
