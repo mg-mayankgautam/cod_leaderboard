@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const app= express();
 const PORT = 4700;
-//const hbs = require('hbs');
+const hbs = require('hbs');
 const bodyparser = require('body-parser');//use with axios 
 //const mongoose = require('mongoose');
 
@@ -12,7 +12,7 @@ const bodyparser = require('body-parser');//use with axios
 
 
 // app.set('views',path.join(__dirname, 'views'));
-//app.set('view engine','hbs');
+app.set('view engine','hbs');
 
 
 app.use(express.urlencoded({ extended: true }));
