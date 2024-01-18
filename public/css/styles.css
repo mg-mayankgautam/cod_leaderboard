@@ -23,11 +23,16 @@ body{
     text-align: center;
     width: 50%;
     height: 100%;
+    position: relative;
     top:0;
     bottom:0;
     right:0;
     left:0;
+<<<<<<< HEAD
     transition:  900ms;    
+=======
+    transition: width 250ms ease-in-out;    
+>>>>>>> c7a39f0e63d56c32133e55712b182d39bf84128b
 }
 .right{
     display: flex;
@@ -43,8 +48,12 @@ body{
     bottom:0;
     right:0;
     left:0; */
+<<<<<<< HEAD
     /* transition:  250ms;  */
     transition: width 2000ms ease-in-out;   
+=======
+    transition: width 250ms ease-in-out;    
+>>>>>>> c7a39f0e63d56c32133e55712b182d39bf84128b
 }
 
 /* .left:hover{
@@ -54,6 +63,7 @@ body{
 
 .leftExpand{
     width: 100%;
+    /* transform: translateX(50%); */
 }
 
 .rightCollapse{width:0%;}
@@ -101,7 +111,7 @@ button:hover{
 }
 .logo{
     position: absolute;
-    /* z-index: 1; */
+    z-index: 20;
     width: 160px;
     height: 160px;
 }
