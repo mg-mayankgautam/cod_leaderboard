@@ -4,9 +4,9 @@ const app= express();
 const PORT = 4700;
 const hbs = require('hbs');
 const bodyparser = require('body-parser');//use with axios 
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-//const { mongoConnect } = require('./database/database.js');
+const { mongoConnect } = require('./database/database.js');
 //const session = require('express-session')
 //const MongoDBsession = require('connect-mongodb-session')(session);
 
@@ -27,6 +27,9 @@ const landingpageRouter = require('./routes/landingpage.js');
 
 app.use('/', landingpageRouter);
 
+const adminpageRouter = require('./routes/adminpage.js');
+
+app.use('/admin', adminpageRouter);
 
 // app.get('/rankings', (req, res ) =>{
 
@@ -36,6 +39,18 @@ app.use('/', landingpageRouter);
 
 
 
-app.listen(PORT, () => {
-    console.log(`http://localhost:` + PORT);
+// app.listen(PORT, () => {
+//     console.log(`http://localhost:` + PORT);
+// })
+
+mongoose.connect('mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/codm',{
+   // useNewUrlParser: true,
+   // useUnifiedTopology: true,
+   // useCreateIndex: true
 })
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`http://localhost:` + PORT);
+        })
+    })
+    .catch(err => {console.error(err);});
