@@ -1,6 +1,6 @@
 
 
-module.exports.getabout = async(req,res)=>{
+module.exports.getAbout = async(req,res)=>{
     //res.send({ "name": "GeeksforGeeks" });
     res.render('about',{
         

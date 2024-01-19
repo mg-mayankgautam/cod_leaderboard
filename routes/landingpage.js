@@ -10,7 +10,7 @@ const shopController = require('../controller/shopcontroller.js');
 
 router.get('/rankings', rankingsController.getRankings);
 router.get('/services', servicesController.getServices);
-router.get('/about', rankingsController.getabout);
-router.get('/shop', servicesController.getservices);
+router.get('/about', aboutController.getAbout);
+router.get('/shop', shopController.getShop);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 
 
-module.exports.getshop = async(req,res)=>{
+module.exports.getShop = async(req,res)=>{
     //res.send({ "name": "GeeksforGeeks" });
     res.render('shop',{
         
