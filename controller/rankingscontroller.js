@@ -1,4 +1,4 @@
-
+const rankingDB = require('../models/rankingDB')
 
 module.exports.getRankings = async(req,res)=>{
     //res.send({ "name": "GeeksforGeeks" });
@@ -7,6 +7,11 @@ module.exports.getRankings = async(req,res)=>{
   
      });
    // res.send('ranking)
-        console.log('inside get');
-    //res.send('some ranking data');
+   //res.send('some ranking data');
+    console.log('inside get');
+
+    const allRankings = await rankingDB.find({}).select({ "teamname":1, "rank": 1, "_id": 1});
+
+    console.log({allRankings})
+    // res.send({allRankings});
 }

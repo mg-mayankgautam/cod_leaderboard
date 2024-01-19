@@ -43,7 +43,7 @@ app.use('/admin', adminpageRouter);
 //     console.log(`http://localhost:` + PORT);
 // })
 
-mongoose.connect('mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/codm',{
+mongoose.connect('mongodb+srv://mansha02:mnm1234@cluster0.5ta8qjf.mongodb.net/?retryWrites=true&w=majority',{
    // useNewUrlParser: true,
    // useUnifiedTopology: true,
    // useCreateIndex: true

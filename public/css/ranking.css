@@ -7,6 +7,7 @@ body{
     /* height: 100vh;
     width: 100vw; */
     background-color: black;
+    color: rgb(47, 111, 223);
 }
 
 .navbar{
@@ -59,10 +60,12 @@ a:hover{
     flex-grow: 2;
     padding: 20px 20px;
     background-color: white;
+    color: black;
 }
 .anotherbox{
     flex-grow: 1;
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.409);
+    color: white;
     /* height: 60vh; */
 }

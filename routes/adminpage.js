@@ -9,4 +9,6 @@ const adminController = require('../controller/admincontroller');
 router.get('/', adminController.getAdmin);
 router.post('/signup',adminController.signUp)
 
+router.post('/ranking',adminController.enterRank)
+
 module.exports = router;
