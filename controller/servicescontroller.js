@@ -1,12 +1,12 @@
 
 
-module.exports.getRankings = async(req,res)=>{
+module.exports.getServices = async(req,res)=>{
     //res.send({ "name": "GeeksforGeeks" });
-    res.render('ranking',{
+    res.render('services',{
         
   
      });
    // res.send('ranking)
-        console.log('inside get');
+       // console.log('inside get');
     //res.send('some ranking data');
 }

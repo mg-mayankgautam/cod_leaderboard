@@ -53,36 +53,36 @@ right_btn.addEventListener('click', async ()=>{
     // })}
     
 
-    fetch('/pages/ranking.html')
-    .then(function(response) {
-        // When the page is loaded convert it to text
-        return response.text()
-    })
-    .then(function(html) {
-        // Initialize the DOM parser
-        var parser = new DOMParser();
+    // fetch('/pages/ranking.html')
+    // .then(function(response) {
+    //     // When the page is loaded convert it to text
+    //     return response.text()
+    // })
+    // .then(function(html) {
+    //     // Initialize the DOM parser
+    //     var parser = new DOMParser();
 
-        // Parse the text
-        var doc = parser.parseFromString(html, "text/html");
-        console.log(doc);
+    //     // Parse the text
+    //     var doc = parser.parseFromString(html, "text/html");
+    //     console.log(doc);
 
-        // You can now even select part of that html as you would in the regular DOM 
-        // Example:
-        // var docArticle = doc.querySelector('article').innerHTML;
-        
+    //     // You can now even select part of that html as you would in the regular DOM 
+    //     // Example:
+    //     // var docArticle = doc.querySelector('article').innerHTML;
+    
+
+    //     const body = doc.querySelector('body');
+    //     const right = document.querySelector('.right'); // index.html wala right div
+    //     right.appendChild(body)
+    // })
+    // .catch(function(err) {  
+    //     console.log('Failed to fetch page: ', err);  
+    // });
+    
         logo.classList.add('hidden');
         logo.addEventListener('transitionend', ()=>{ 
             if(logo_div){document.body.removeChild(logo_div);}
         })
-
-        const body = doc.querySelector('body');
-        const right = document.querySelector('.right'); // index.html wala right div
-        right.appendChild(body)
-    })
-    .catch(function(err) {  
-        console.log('Failed to fetch page: ', err);  
-    });
-    
 
     // try {
     //     let  data  = await axios.get('/rankings');
