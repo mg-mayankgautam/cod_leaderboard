@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+Admin Home
+
+    <a href="/adminhome/logout"><button class="empty">Logout</button> </a>
+
+                 {{!-- <div class="enter_ranking">
+                    <h3>enter team rankings</h3>
+                        <form action="/admin/ranking" method="POST">
+                            <input type="text" name="teamname" class="teamname" placeholder="teamname">
+                            <input type="text" name="rank" class="rank" placeholder="rank">
+                            <button class="submit">submit</button>
+                        </form>
+                 </div> --}}
+
+    <div style="border: 1px solid black" >
+        <h1>Add Scrim </h1>
+
+        <form action="/adminhome/addscrim" method="POST">
+            <input type="text" name="scrimshortform" label="Scrim Short-Form in CAPITALS" placeholder="SCRIM short form"> 
+
+            <input type="text" name="scrimname" label="Scrim Name" placeholder="SCRIM full name">
+                  
+            <button class="submit">Enter</button>
+        </form>
+    </div>
+
+    <div style="border: 1px solid black" >
+        <h1>Modify Scrim Data </h1>
+
+        <div  style="border: 1px solid black">
+            <h3>add new team</h3>
+            <form action="/adminhome/" method="POST">
+                <input list="scrims" placeholder="Select Scrim" name="scrimshortform">
+                    <datalist id="scrims">
+                        <option value="Scrim 1">
+                        <option value="Scrim 2">
+                        <option value="Scrim 3">       
+                    </datalist>
+                {{!-- <select name="scrimshortform" id="scrims">
+                    <option value="Scrim 1">
+                    <option value="Scrim 2">
+                    <option value="Scrim 3">  
+                </select> --}}
+                <input type="text" name="teamname" placeholder="Team Name">  
+                <button class="submit">Add Team</button>
+            </form>
+        </div>
+        <h3>modify existing team data</h3>
+            <form action="/adminhome/" method="POST">
+                <input list="scrims" placeholder="Select Scrim" name="scrimshortform">
+                    <datalist id="scrims">
+                        <option value="Scrim 1">
+                        <option value="Scrim 2">
+                        <option value="Scrim 3">        
+                    </datalist>
+                <input list="teams" placeholder="Select Team" name="teamname">
+                    <datalist id="teams">
+                        <option value="Team 1">
+                        <option value="Team 2">
+                        <option value="Team 3">        
+                    </datalist>
+                <input type="number" placeholder="Match Wins" name="matchwins">
+                <input type="number" placeholder="Position Points" name="positionpoints">
+                <input type="number" placeholder="Kills" name="kills">
+                <input type="number" placeholder="Damage" name="damage">
+                <input type="number" placeholder="Total Points" name="totalpoints">
+                <button class="submit">Submit Team Data</button>
+            </form>
+    </div>
+</body>
+</html>

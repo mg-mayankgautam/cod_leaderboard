@@ -8,7 +8,9 @@ const adminController = require('../controller/admincontroller');
 
 router.get('/', adminController.getAdmin);
 router.post('/signup',adminController.signUp)
+router.post('/login',adminController.logIn)
 
-router.post('/ranking',adminController.enterRank)
+
+//router.post('/ranking',adminController.enterRank)
 
 module.exports = router;

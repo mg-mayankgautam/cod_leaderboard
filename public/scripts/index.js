@@ -11,7 +11,7 @@ left_btn.addEventListener('click', ()=>
     left_btn.parentNode.classList.add('leftExpand');
     right_btn.parentNode.classList.add('rightCollapse');
       
-    logo.classList.add('rotate');
+    // logo.classList.add('rotate');
     right_btn.parentNode.innerHTML='';
     left_btn.parentNode.innerHTML='';
 
@@ -34,7 +34,7 @@ right_btn.addEventListener('click', async ()=>{
     
     left_btn.parentNode.innerHTML='';
 
-    logo.classList.add('rotate');  
+    // logo.classList.add('rotate');  
 
       
     right_btn.parentNode.innerHTML='';

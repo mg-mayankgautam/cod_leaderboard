@@ -12,6 +12,6 @@ module.exports.getRankings = async(req,res)=>{
 
     const allRankings = await rankingDB.find({}).select({ "teamname":1, "rank": 1, "_id": 1});
 
-    console.log({allRankings})
+    //console.log({allRankings})
     // res.send({allRankings});
 }
