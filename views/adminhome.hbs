@@ -22,7 +22,7 @@ Admin Home
                         </form>
                  </div> --}}
 
-    <div style="border: 1px solid black" >
+    <div class="add_scrim_div" style="border: 1px solid black" >
         <h1>Add Scrim </h1>
 
         <form action="/adminhome/addscrim" method="POST">
@@ -34,52 +34,54 @@ Admin Home
         </form>
     </div>
 
-    <div style="border: 1px solid black" >
+    <div class="modify_scrim_div" style="border: 1px solid black" >
         <h1>Modify Scrim Data </h1>
 
-        <div  style="border: 1px solid black">
-            <h3>add new team</h3>
-            <form action="/adminhome/" method="POST">
-                <input list="scrims" placeholder="Select Scrim" name="scrimshortform">
-                    <datalist id="scrims">
-                        <option value="Scrim 1">
-                        <option value="Scrim 2">
-                        <option value="Scrim 3">       
-                    </datalist>
-                {{!-- <label for="scrims"> Select Scrims </label>
-                <select name="scrimshortform" id="scrims" required placeholder="Select Scrim">
-                    <option value="Scrim 1">Scrim 1</option>
-                    <option value="Scrim 2">Scrim 2</option>
-                    <option value="Scrim 3">Scrim 3</option>
-                </select> --}}
-                <input type="text" name="teamname" placeholder="Team Name">  
-                <button class="submit">Add Team</button>
-            </form>
-        </div>
-        <h3>modify existing team data</h3>
+            <div class="add_team_div" style="border: 1px solid black">
+                <h3>add new team</h3>
+                <form action="/adminhome/addteam" method="POST">
+                    
+                    
+                    <select name="scrimname" class="scrims1" placeholder="Select Scrim">
+                        {{!-- <option value="Scrim 1">Scrim 1</option>
+                        <option value="Scrim 2">Scrim 2</option>
+                        <option value="Scrim 3">Scrim 3</option> --}}
+                    </select>
+                    <input type="text" name="teamname" placeholder="Team Name">  
+                    <button class="submit">add new Team </button>
+                </form>
+            </div>
+            
+            <div class="modify_team_div" style="border: 1px solid black">
+                <h3>modify existing team data</h3>
 
-            <form action="/adminhome/" method="POST">
-                <input list="scrims" placeholder="Select Scrim" name="scrimshortform">
-                    <datalist class="scrimslist">
-                        <option value="Scrim 1">
-                        <option value="Scrim 2">
-                        <option value="Scrim 3">        
-                    </datalist>
-                <input list="teams" placeholder="Select Team" name="teamname">
-                    <datalist id="teams">
-                        <option value="Team 1">
-                        <option value="Team 2">
-                        <option value="Team 3">        
-                    </datalist>
+                <form action="/adminhome/addteam" method="POST">
+                    
+                    
+                    <select name="scrimname" class="scrims2"  placeholder="Select Scrim">
+                        {{!-- <option value="Scrim 1">Scrim 1</option>
+                        <option value="Scrim 2">Scrim 2</option>
+                        <option value="Scrim 3">Scrim 3</option> --}}
+                    </select>
+                    <input type="text" name="teamname" placeholder="Team Name">  
+                    <button class="submit">modify team data</button>
+                </form>
+
+                    
+               
+            </div>  
+            <div>
+                <h1>add team entries</h1>
                 <input type="number" placeholder="Match Wins" name="matchwins">
-                <input type="number" placeholder="Position Points" name="positionpoints">
-                <input type="number" placeholder="Kills" name="kills">
-                <input type="number" placeholder="Damage" name="damage">
-                <input type="number" placeholder="Total Points" name="totalpoints">
-                <button class="submit">Submit Team Data</button>
-            </form>
+                    <input type="number" placeholder="Position Points" name="positionpoints">
+                    <input type="number" placeholder="Kills" name="kills">
+                    <input type="number" placeholder="Damage" name="damage">
+                    <input type="number" placeholder="Total Points" name="totalpoints">
+                    <button class="submit">Submit Team Data</button>
+            </div> 
     </div>
-    <script defer src="./scripts/adminhome.js"></script>
+    
+<script defer src="./scripts/adminhome.js"></script>
 
 </body>
 </html>

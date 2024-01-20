@@ -6,7 +6,7 @@ const {Schema}=mongoose;
 
 const scrimSchema = new Schema({
     
-    scrimshortform: {type:String,required:true,unique:true},
+    scrimshortform: {type:String,required:true},
     scrimname:{type:String,required:true,unique:true},
 
 });
