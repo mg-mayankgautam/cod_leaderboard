@@ -11,5 +11,6 @@ const scrimController = require('../controller/scrimcontroller.js');
 router.get('/',adminHomeController.loadAdminHome);
 router.get('/logout',adminHomeController.logout);
 router.post('/addscrim',scrimController.addScrim);
+router.get('/getscrims',scrimController.getScrims);
 
 module.exports = router;

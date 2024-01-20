@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
@@ -44,19 +46,21 @@ Admin Home
                         <option value="Scrim 2">
                         <option value="Scrim 3">       
                     </datalist>
-                {{!-- <select name="scrimshortform" id="scrims">
-                    <option value="Scrim 1">
-                    <option value="Scrim 2">
-                    <option value="Scrim 3">  
+                {{!-- <label for="scrims"> Select Scrims </label>
+                <select name="scrimshortform" id="scrims" required placeholder="Select Scrim">
+                    <option value="Scrim 1">Scrim 1</option>
+                    <option value="Scrim 2">Scrim 2</option>
+                    <option value="Scrim 3">Scrim 3</option>
                 </select> --}}
                 <input type="text" name="teamname" placeholder="Team Name">  
                 <button class="submit">Add Team</button>
             </form>
         </div>
         <h3>modify existing team data</h3>
+
             <form action="/adminhome/" method="POST">
                 <input list="scrims" placeholder="Select Scrim" name="scrimshortform">
-                    <datalist id="scrims">
+                    <datalist class="scrimslist">
                         <option value="Scrim 1">
                         <option value="Scrim 2">
                         <option value="Scrim 3">        
@@ -75,5 +79,7 @@ Admin Home
                 <button class="submit">Submit Team Data</button>
             </form>
     </div>
+    <script defer src="./scripts/adminhome.js"></script>
+
 </body>
 </html>

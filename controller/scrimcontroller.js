@@ -16,3 +16,13 @@ module.exports.addScrim = (req, res) => {
 
 
 }
+
+
+module.exports.getScrims = async (req, res) => {
+
+    const allScrims = await scrimDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
+
+    console.log("scrims from DB",allScrims)
+
+    res.send(allScrims)
+}
