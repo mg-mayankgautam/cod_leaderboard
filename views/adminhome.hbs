@@ -55,15 +55,15 @@ Admin Home
             <div class="modify_team_div" style="border: 1px solid black">
                 <h3>modify existing team data</h3>
 
-                <form action="/adminhome/addteam" method="POST">
-                    
+                <form action="/adminhome/" method="POST">
                     
                     <select name="scrimname" class="scrims2"  placeholder="Select Scrim">
                         {{!-- <option value="Scrim 1">Scrim 1</option>
                         <option value="Scrim 2">Scrim 2</option>
                         <option value="Scrim 3">Scrim 3</option> --}}
                     </select>
-                    <input type="text" name="teamname" placeholder="Team Name">  
+                     <select name="teamname" class="teams"  placeholder="Select Team">
+                     </select>
                     <button class="submit">modify team data</button>
                 </form>
 
