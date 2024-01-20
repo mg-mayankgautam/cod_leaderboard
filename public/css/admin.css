@@ -8,7 +8,7 @@ body{
     height: 100vh;
 }
 form{
-
+    
 }
 
 input{
@@ -22,7 +22,7 @@ input{
 button{
     padding: 5px 5px;
     height: 30px;
-    width: 60px;
+    /* width: 60px; */
     border: none;
     border-radius: 10px;
     cursor: pointer;
