@@ -7,8 +7,8 @@ const bodyparser = require('body-parser');//use with axios
 const mongoose = require('mongoose');
 
 const { mongoConnect } = require('./database/database.js');
-//const session = require('express-session')
-//const MongoDBsession = require('connect-mongodb-session')(session);
+const session = require('express-session')
+const MongoDBsession = require('connect-mongodb-session')(session);
 
 
 // app.set('views',path.join(__dirname, 'views'));
@@ -20,6 +20,23 @@ app.use(bodyparser.json());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+const store = new MongoDBsession({
+    uri:'mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/HouseOfesports?retryWrites=true&w=majority',
+    collection: "mysessions"
+});
+
+app.use(
+    session({
+        secret:'secret key for cookie',
+        resave: false,
+        saveUninitialized: false,
+        store: store,
+    })
+);
+
+
 
 
 const landingpageRouter = require('./routes/landingpage.js');
@@ -42,10 +59,19 @@ app.use('/admin', adminpageRouter);
 // app.listen(PORT, () => {
 //     console.log(`http://localhost:` + PORT);
 // })
+//mongodb+srv://mayankgautam0811:<password>@cluster0.hv7zef4.mongodb.net/?retryWrites=true&w=majority
+//wwZnjaDJ_tGG5Yw
 
-mongoose.connect('mongodb+srv://mansha02:mnm1234@cluster0.5ta8qjf.mongodb.net/?retryWrites=true&w=majority',{
-   // useNewUrlParser: true,
-   // useUnifiedTopology: true,
+
+const adminhomeRouter = require('./routes/adminhome.js');
+
+app.use('/adminhome', adminhomeRouter);
+
+
+
+mongoose.connect('mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/HouseOfesports?retryWrites=true&w=majority',{
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true,
    // useCreateIndex: true
 })
     .then(() => {
@@ -54,3 +80,7 @@ mongoose.connect('mongodb+srv://mansha02:mnm1234@cluster0.5ta8qjf.mongodb.net/?r
         })
     })
     .catch(err => {console.error(err);});
+
+
+
+    
