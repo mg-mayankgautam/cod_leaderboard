@@ -193,3 +193,45 @@ modify_member_data_btn.addEventListener('click', (e) => {
     selected_member.style.display = 'block';
 
 })
+
+{/* <input class="match_wins" type="number" placeholder="Match Wins" name="match_wins">
+<input class="position_points" type="number" placeholder="Position Points" name="position_points">
+<input class="kills" type="number" placeholder="Kills" name="kills">
+<input class="damage" type="number" placeholder="Damage" name="damage">
+<input class="total_points" type="number" placeholder="Total Points" name="total_points">
+<button class="submit_player_data">Submit Team Data</button>
+</form> */}
+
+
+const match_wins=document.querySelector('.match_wins');
+const position_points=document.querySelector('.position_points');
+const kills=document.querySelector('.kills');
+const damage=document.querySelector('.damage');
+const total_points=document.querySelector('.total_points');
+const submit_player_data_btn=document.querySelector('.submit_player_data_btn');
+
+
+
+
+
+submit_player_data_btn.addEventListener('click', async(e)=>{
+    e.preventDefault();
+    console.log(match_wins.value, position_points.value, kills.value, damage.value, total_points.value) 
+    
+    try{
+        const data = await axios.post('/adminhome/addplayerdata',{
+                                          member_name:selectPlayer.value,
+                                          scrimname:  scrims2.value,
+                                          teamname: teams.value,
+                                          match_wins:match_wins.value,
+                                          position_points:position_points.value,
+                                          kills:kills.value,
+                                          damage:damage.value,
+                                          total_points:total_points.value});
+                                          }
+ 
+     catch(error){console.log(error)}
+    
+}
+)
+
