@@ -76,6 +76,21 @@ function addtoteamsdropdown(data){
 }
 
 
+
+function addtoteamdropdown(data){
+    console.log(data);
+    const selectTeam = document.querySelector('.teams')
+    
+    for(let i=0; i<data.length; i++){
+        
+        const option = document.createElement('option');
+        option.value = data[i].teamname//isme sirf naam dalna hai?
+        option.innerText= data[i].teamname
+        selectTeam.appendChild(option);
+    }
+
+}
+
 getScrims();
 getTeams();
 
