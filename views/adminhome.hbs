@@ -58,19 +58,17 @@ Admin Home
                 {{!-- <form action="/adminhome/addteam" method="POST"> --}}
                 <div class="select_scrimname" >
                     <form >
-
                         <select name="scrimname" class="scrims2"  placeholder="Select Scrim">
                             {{!-- <option value="Scrim 1">Scrim 1</option>
                             <option value="Scrim 2">Scrim 2</option>
                             <option value="Scrim 3">Scrim 3</option> --}}
                         </select>
-                        <button class="select_scrim_btn">select Scrim</button>
+                        <button class="select_scrim_btn">Select Scrim</button>
                     </form> 
                 </div>    
 
                 <div class="select_teamname" style="display: none;">
                     <div class="selected_scrim_name">
-
                     </div>
 
                     <h4>select team name</h4>
@@ -87,17 +85,20 @@ Admin Home
                     
                 </div>
                     
-               
-            </div>  
+            </div> 
+
             <div class="selected_team" style="display: none;">
                 <h1>add team entries</h1>
                 <div class="current_team_name"></div>
-                <input type="number" placeholder="Match Wins" name="matchwins">
+
+                <form action="">
+                    <input type="number" placeholder="Match Wins" name="matchwins">
                     <input type="number" placeholder="Position Points" name="positionpoints">
                     <input type="number" placeholder="Kills" name="kills">
                     <input type="number" placeholder="Damage" name="damage">
                     <input type="number" placeholder="Total Points" name="totalpoints">
                     <button class="submit">Submit Team Data</button>
+                </form>
             </div> 
     </div>
     

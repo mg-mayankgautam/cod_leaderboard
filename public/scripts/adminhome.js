@@ -1,4 +1,4 @@
-
+// const axios = require('axios');
 const scrimslist = document.querySelector('.scrimslist');
 const modify_team_data_btn = document.querySelector('.modify_team_data_btn')
 const select_scrim_btn=document.querySelector('.select_scrim_btn');
@@ -67,12 +67,12 @@ const selectTeam = document.querySelector('.teams')
 
 
 function addtoteamsdropdown(data,selectedscrim){
-   console.log(selectedscrim);
+//    console.log(selectedscrim);
 
    const finaldata=data.filter((e)=>{
     if(e.scrimname===selectedscrim) return e})
 
-    console.log(finaldata);
+    // console.log(finaldata);
 
     //const selectTeam = document.querySelector('.teams')
     
@@ -105,28 +105,32 @@ function addtoteamsdropdown(data,selectedscrim){
 getScrims();
 //getTeams();
 
-//console.log(modify_team_data_btn);
-
-// modify_team_data_btn.addEventListener('click', () =>{
-//    // e.preventDefault();
-//     console.log("clicked");
-//     const selected_team = document.querySelector('.selected_team');    
-//     selected_team.style.display='block';
-
-// })
 
 select_scrim_btn.addEventListener('click', (e) =>{
-e.preventDefault();
-selectTeam.innerHTML='';
-const scrims2=document.querySelector('.scrims2')
+    e.preventDefault();
+    selectTeam.innerHTML='';
+    const scrims2=document.querySelector('.scrims2')
 
-//console.log(scrims2.value);
-const select_teamname=document.querySelector('.select_teamname');
-select_teamname.style.display='block';
+    //console.log(scrims2.value);
+    const select_teamname=document.querySelector('.select_teamname');
+    select_teamname.style.display='block';
 
-const selected_scrim_name = document.querySelector('.selected_scrim_name');
-selected_scrim_name.innerHTML ='SCRIM:'
+    const selected_scrim_name = document.querySelector('.selected_scrim_name');
+    selected_scrim_name.innerHTML =`SELECTED SCRIM: ${scrims2.value}`
 
-getTeams(scrims2.value);
+    getTeams(scrims2.value);
 
 });
+
+console.log(modify_team_data_btn);
+
+modify_team_data_btn.addEventListener('click', (e) =>{
+    e.preventDefault();
+    const teams = document.querySelector('.teams')
+
+    const selected_team = document.querySelector('.selected_team');    
+    selected_team.style.display='block';
+
+    const current_team_name = document.querySelector('.current_team_name')
+    current_team_name.innerHTML= `SELECTED TEAM: ${teams.value}`
+})
