@@ -8,16 +8,21 @@ module.exports.addplayerdata = async(req, res) => {
    // console.log("incoming playerdata", member_name, scrimname, teamname, match_wins, position_points, kills, damage, total_points);
      
     const player = await playerDB.findOne({member_name,scrimname,teamname});
-    
+    console.log(player);
 
     if(player){
-        console.log('error player already exists', player);
+        console.log('error player already exists');
         
+        playerDB.updateOne(player, {match_wins, position_points, kills, damage, total_points})
+          .then(()=>{
+              console.log('updated player data')
+              // res.render('admin');
+              })
+          .catch(err =>{console.log(err);});
         // return res.send(player)
     }
-    if(!player){
+    else{
         console.log('player doesnt exist')
-      }
       
       let newPlayer = new playerDB ({member_name, scrimname, teamname, match_wins, position_points, kills, damage, total_points});
 
@@ -27,7 +32,7 @@ module.exports.addplayerdata = async(req, res) => {
             res.redirect('/adminhome');
        })
        .catch(err =>{console.log(err);});
-    
+      }
 }
 
 

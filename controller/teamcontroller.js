@@ -4,38 +4,35 @@ module.exports.addTeam = async (req, res) => {
    
    
      console.log(req.body);
-    // const { scrimname, teamname }=req.body;
-    // const team = await teamDB.findOne({scrimname,teamname});
-
-
-
+    const { scrimname, teamname }=req.body;
+    const team = await teamDB.findOne({scrimname,teamname});
 
     /////////////////////////////////////////
-    const scrimname='pubgroung';
-    const teamname='dogs';
+    // const scrimname='pubgroung';
+    // const teamname='dogs';
     
-    const team_temp= await teamDB.findOne({scrimname});
-    console.log('here',team_temp);
+    // const team_temp= await teamDB.findOne({scrimname});
+    // console.log('here',team_temp);
     ////////////////////////////////
 
 
-    // if(team){
-    //     console.log('team exists');
+    if(team){
+        console.log('team exists');
 
-    //   return res.redirect('/adminhome')
-    // }
+      return res.redirect('/adminhome')
+    }
     
-    // if(!team){
-    //   console.log('team doesnt exists', team)
-    // }
+    if(!team){
+      console.log('team doesnt exists', team)
+    }
     
-    // let newTeam = new teamDB ({scrimname,teamname});
-    // newTeam.save()
-    //  .then(()=>{
-    //      console.log('team added success');
-    //      res.redirect('/adminhome');
-    //  })
-    //  .catch(err =>{console.log(err);});
+    let newTeam = new teamDB ({scrimname,teamname});
+    newTeam.save()
+     .then(()=>{
+         console.log('team added success');
+         res.redirect('/adminhome');
+     })
+     .catch(err =>{console.log(err);});
 
 
 }

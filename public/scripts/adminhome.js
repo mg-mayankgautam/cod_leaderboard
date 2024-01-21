@@ -143,7 +143,7 @@ const teams = document.querySelector('.teams')
 
 modify_team_data_btn.addEventListener('click', (e) =>{
     e.preventDefault();
-   
+    selectPlayer.innerHTML="";
     const selected_team = document.querySelector('.selected_team');    
     selected_team.style.display='block';
 
