@@ -33,6 +33,34 @@ async function getTeams(selectedscrim) {
 
 };
 
+async function getPlayers(selectedteam, selectedscrim){
+
+    axios.get()
+    try{
+        let data = await axios.get('/adminhome/getplayerdata')
+        //console.log('get questions aa gaya',data);
+        // console.log(data.data);
+        addtoplayersdropdown(data.data, selectedteam, selectedscrim)      
+        }
+    catch (e) {console.log(e)}
+}
+
+const selectPlayer = document.querySelector('.members');
+
+function addtoplayersdropdown(data, selectedteam, selectedscrim){
+
+    const finaldata=data.filter((e)=>{
+        if(e.scrimname===selectedscrim && e.teamname===selectedteam ) return e})
+            
+        for(let i=0; i<finaldata.length; i++){
+            
+            const option = document.createElement('option');
+            option.value = finaldata[i].member_name;//isme sirf naam dalna hai?
+            option.innerText= finaldata[i].member_name;
+            selectPlayer.appendChild(option);
+        }
+}
+
 function addtodropdown1(data) {
     console.log(data);
     const selectScrim = document.querySelector('.scrims1')
@@ -121,6 +149,8 @@ modify_team_data_btn.addEventListener('click', (e) =>{
 
     const current_team_name = document.querySelector('.current_team_name')
     current_team_name.innerHTML= `SELECTED TEAM: ${teams.value}`
+
+    getPlayers(teams.value, scrims2.value);
 })
 
 const add_player_div=document.querySelector('.add_player_div');
@@ -135,6 +165,9 @@ const member_name_input =document.querySelector('.member_name_input');
 
 submit_member_btn.addEventListener('click',async (e) =>{
     e.preventDefault();
+    selectPlayer.innerHTML="";
+
+
     console.log(member_name_input.value,scrims2.value,teams.value);
 
     try{
@@ -148,6 +181,15 @@ submit_member_btn.addEventListener('click',async (e) =>{
                                          }
 
     catch(error){console.log(error)}
-    
+    getPlayers(teams.value, scrims2.value);
 
 });
+
+const modify_member_data_btn = document.querySelector('.modify_member_data_btn')
+const selected_member = document.querySelector('.selected_member')
+
+modify_member_data_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    selected_member.style.display = 'block';
+
+})

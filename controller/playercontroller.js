@@ -26,3 +26,11 @@ module.exports.addplayerdata = async(req, res) => {
        .catch(err =>{console.log(err);});
     
 }
+
+module.exports.getplayerdata = async(req, res) => {
+  const allPlayers = await playerDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
+
+   console.log("scrims from DB",allPlayers)
+
+    res.send(allPlayers);
+}

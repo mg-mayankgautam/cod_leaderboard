@@ -16,5 +16,6 @@ router.get('/getscrims',scrimController.getScrims);
 router.post('/addteam',teamController.addTeam);
 router.get('/getteams',teamController.getTeams);
 router.post('/addplayerdata',playerController.addplayerdata);
+router.get('/getplayerdata',playerController.getplayerdata);
 
 module.exports = router;
