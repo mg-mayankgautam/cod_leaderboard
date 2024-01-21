@@ -7,7 +7,7 @@ module.exports.addScrim = async(req, res) => {
     //const allQuestions = await questionDB.find({}).select({ "currentUser":1, "question": 1, "_id": 1});
     
     const scrim = await scrimDB.findOne({scrimname});
-    
+
     if(scrim){
       return res.redirect('/adminhome')
     }
@@ -34,5 +34,5 @@ module.exports.getScrims = async (req, res) => {
 
   //  console.log("scrims from DB",allScrims)
 
-    res.send(allScrims)
+    res.send(allScrims);
 }

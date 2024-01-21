@@ -3,7 +3,7 @@ const teamDB = require('../models/teamDB')
 module.exports.addTeam = async (req, res) => {
    
    
-     console.log(req.body);
+     //console.log(req.body);
      const { scrimname, teamname }=req.body;
 
      const team = await teamDB.findOne({scrimname,teamname});
@@ -15,7 +15,7 @@ module.exports.addTeam = async (req, res) => {
     }
     
     if(!team){
-      console.log('team doesnt exists', scrim)
+      console.log('team doesnt exists', team)
     }
     
     let newTeam = new teamDB ({scrimname,teamname});

@@ -38,7 +38,7 @@ Admin Home
         <h1>Modify Scrim Data </h1>
 
             <div class="add_team_div" style="border: 1px solid black">
-                <h3>add new team</h3>
+                <h3>add new team to SCRIM</h3>
                 <form action="/adminhome/addteam" method="POST">
                     
                     
@@ -55,23 +55,31 @@ Admin Home
             <div class="modify_team_div" style="border: 1px solid black">
                 <h3>modify existing team data</h3>
 
-                <form action="/adminhome/addteam" method="POST">
+                {{!-- <form action="/adminhome/addteam" method="POST"> --}}
                     
+                <form >
                     
                     <select name="scrimname" class="scrims2"  placeholder="Select Scrim">
                         {{!-- <option value="Scrim 1">Scrim 1</option>
                         <option value="Scrim 2">Scrim 2</option>
                         <option value="Scrim 3">Scrim 3</option> --}}
                     </select>
-                    <input type="text" name="teamname" placeholder="Team Name">  
-                    <button class="submit">modify team data</button>
+                    <select name="teamname" class="teams"  placeholder="Select team">
+                        {{!-- <option value="Scrim 1">Scrim 1</option>
+                        <option value="Scrim 2">Scrim 2</option>
+                        <option value="Scrim 3">Scrim 3</option> --}}
+                    </select>
+
+                    {{!-- <input type="text" name="teamname" placeholder="Team Name">   --}}
+                    <button class="modify_team_data_btn">modify team data</button>
                 </form>
 
                     
                
             </div>  
-            <div>
+            <div class="selected_team" style="display: none;">
                 <h1>add team entries</h1>
+                <div class="current_team_name"></div>
                 <input type="number" placeholder="Match Wins" name="matchwins">
                     <input type="number" placeholder="Position Points" name="positionpoints">
                     <input type="number" placeholder="Kills" name="kills">
