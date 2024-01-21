@@ -90,13 +90,23 @@ Admin Home
             <div class="selected_team" style="display: none;">
                 <h1>add team entries</h1>
                 <div class="current_team_name"></div>
+                
+                <button class="add_new_member_btn">add new member
+                </button>
 
+            <div style="display: none;" class="add_player_div">
                 <form action="">
-                    <input type="number" placeholder="Match Wins" name="matchwins">
-                    <input type="number" placeholder="Position Points" name="positionpoints">
+                    <input type="text" name="membername" placeholder="Add Member Name" class="member_name_input">
+                    <button class="submit_member_btn">Add</button>
+                </form>
+
+            </div>    
+                <form action="">
+                    <input type="number" placeholder="Match Wins" name="match_wins">
+                    <input type="number" placeholder="Position Points" name="position_points">
                     <input type="number" placeholder="Kills" name="kills">
                     <input type="number" placeholder="Damage" name="damage">
-                    <input type="number" placeholder="Total Points" name="totalpoints">
+                    <input type="number" placeholder="Total Points" name="total_points">
                     <button class="submit">Submit Team Data</button>
                 </form>
             </div> 

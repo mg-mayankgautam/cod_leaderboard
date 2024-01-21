@@ -6,7 +6,7 @@ const router = express.Router();
 const adminHomeController = require('../controller/adminHomecontroller.js');
 const scrimController = require('../controller/scrimcontroller.js');
 const teamController = require('../controller/teamcontroller.js');
-
+const playerController = require('../controller/playercontroller.js');
 
 
 router.get('/',adminHomeController.loadAdminHome);
@@ -15,5 +15,6 @@ router.post('/addscrim',scrimController.addScrim);
 router.get('/getscrims',scrimController.getScrims);
 router.post('/addteam',teamController.addTeam);
 router.get('/getteams',teamController.getTeams);
+router.post('/addplayerdata',playerController.addplayerdata);
 
 module.exports = router;

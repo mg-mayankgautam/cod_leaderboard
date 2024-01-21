@@ -34,7 +34,7 @@ module.exports.getTeams = async (req, res) => {
 
     const allTeams = await teamDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
 
-   console.log("teams from DB",allTeams)
+  //  console.log("teams from DB",allTeams)
 
     res.send(allTeams)
 }
