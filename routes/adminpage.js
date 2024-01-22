@@ -11,6 +11,6 @@ router.post('/signup',adminController.signUp)
 router.post('/login',adminController.logIn)
 
 
-//router.post('/ranking',adminController.enterRank)
+
 
 module.exports = router;

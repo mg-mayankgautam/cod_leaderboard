@@ -3,6 +3,10 @@ const scrimslist = document.querySelector('.scrimslist');
 const modify_team_data_btn = document.querySelector('.modify_team_data_btn')
 const select_scrim_btn=document.querySelector('.select_scrim_btn');
 const add_new_member_btn=document.querySelector('.add_new_member_btn');
+const display_add_scrim_btn= document.querySelector('.display_add_scrim_btn');
+const add_scrim_div = document.querySelector('.add_scrim_div');
+const display_modify_scrim_btn = document.querySelector('.display_modify_scrim_btn');
+const modify_scrim_div = document.querySelector('.modify_scrim_div');
 
 async function getScrims() {
 
@@ -235,3 +239,14 @@ submit_player_data_btn.addEventListener('click', async(e)=>{
 }
 )
 
+
+
+display_add_scrim_btn.addEventListener("click", ()=>{
+    add_scrim_div.style.display="block";
+    modify_scrim_div.style.display="none";
+})
+
+display_modify_scrim_btn.addEventListener("click", ()=>{
+    modify_scrim_div.style.display="block";
+    add_scrim_div.style.display="none";
+})

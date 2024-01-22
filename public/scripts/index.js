@@ -7,7 +7,7 @@ const logo_div= document.querySelector('.logo_div');
 console.log(container)
 
 left_btn.addEventListener('click', ()=>
-{
+{   
     left_btn.parentNode.classList.add('leftExpand');
     right_btn.parentNode.classList.add('rightCollapse');
       
@@ -111,7 +111,6 @@ async function sleep(seconds){
 // container.addEventListener('click', ()=>{
 
 // })
-
 
 
 
