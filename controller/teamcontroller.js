@@ -1,47 +1,46 @@
-const teamDB = require('../models/team_scrimDB')
+const teamDB = require('../models/teamDB');
 
-module.exports.addTeam = async (req, res) => {
-   
-   
-     console.log(req.body);
-    const { scrimname, teamname }=req.body;
-    const team = await teamDB.findOne({scrimname,teamname});
+module.exports.addteam = async(req, res) => {
+    console.log(req.body);
+    const { teamname, teamshortform} =req.body;
 
-    /////////////////////////////////////////
-    // const scrimname='pubgroung';
-    // const teamname='dogs';
-    
-    // const team_temp= await teamDB.findOne({scrimname});
-    // console.log('here',team_temp);
-    ////////////////////////////////
-
+   // console.log("incoming playerdata", member_name, scrimname, teamname, match_wins, position_points, kills, damage, total_points);
+     
+    const team = await teamDB.findOne({teamname});
+    // console.log(player);
 
     if(team){
-        console.log('team exists');
-
-      return res.redirect('/adminhome')
-    }
+       console.log('error team already exists');
+        
+    //     // playerDB.updateOne(player, {match_wins, position_points, kills, damage, total_points})
+    //     //   .then(()=>{
+    //     //       console.log('updated player data')
+    //     //       // res.render('admin');
+    //     //       })
+    //     //   .catch(err =>{console.log(err);});
+    return res.redirect('/adminhome');
+     }
     
-    if(!team){
-      console.log('team doesnt exists', team)
-    }
-    
-    let newTeam = new teamDB ({scrimname,teamname});
-    newTeam.save()
-     .then(()=>{
-         console.log('team added success');
-         res.redirect('/adminhome');
-     })
-     .catch(err =>{console.log(err);});
+        //console.log('player doesnt exist')
+      
+      let newTeam = new teamDB ({teamname, teamshortform});
 
-
+      newTeam.save()
+       .then(()=>{
+           console.log('team added success');
+            res.redirect('/adminhome');
+       })
+       .catch(err =>{console.log(err);});
+      
 }
 
 
-module.exports.getTeams = async (req, res) => {
+module.exports.getteam = async(req, res) => {
 
-    const allTeams = await teamDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
-   
-  //  console.log("teams from DB",allTeams)
-      res.send(allTeams)
+    const allTeams=await teamDB.find({});
+    // const uniqueTeams = await teamDB.distinct("teamname")
+    
+    // console.log("all teamplayers",allTeamPlayers,"unique teams", uniqueTeams);
+
+    res.send(allTeams);
 }

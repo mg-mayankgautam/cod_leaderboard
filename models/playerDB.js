@@ -4,12 +4,11 @@ const {mongo} = require('mongoose');
 const {Schema}=mongoose;
 
 
-const teamPlayerSchema = new Schema({
+const playerSchema = new Schema({
    
    teamname:{type:String,required:true},
-   teamshortform:{type:String,required:true},
-   member_name :{type:String,required:true}
+   member_name:{type:String,required:true}
 
 });
 
-module.exports =mongoose.model('team_players',teamPlayerSchema);
+module.exports =mongoose.model('players',playerSchema);

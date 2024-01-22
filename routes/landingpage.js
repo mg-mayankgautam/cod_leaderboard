@@ -9,11 +9,15 @@ const shopController = require('../controller/shopcontroller.js');
 const playerController = require('../controller/playercontroller.js');
 
 router.get('/rankings', rankingsController.getRankings);
+router.get('/rankings/data', rankingsController.getplayerdata);
+
+
 router.get('/services', servicesController.getServices);
+
 router.get('/about', aboutController.getAbout);
+
 router.get('/shop', shopController.getShop);
 //router.get('/admin', adminController.getadmin);
-router.get('/rankings/data', rankingsController.getplayerdata);
 
 
 module.exports = router;

@@ -8,7 +8,7 @@ const add_scrim_div = document.querySelector('.add_scrim_div');
 const display_modify_scrim_btn = document.querySelector('.display_modify_scrim_btn');
 const modify_scrim_div = document.querySelector('.modify_scrim_div');
 const submit_team_btn = document.querySelector('.submit_team_btn');
-const teamname_input = document.querySelector('.teamname_input'); 
+const add_team_to_scrim = document.querySelector('.add_team_to_scrim'); 
 const selectScrim = document.querySelector('.scrims1')
 const manage_team_btn = document.querySelector('.manage_team_btn')
 const manage_scrim_btn = document.querySelector('.manage_scrim_btn')
@@ -22,7 +22,16 @@ const manage_existing_team_div=document.querySelector('.manage_existing_team_div
 const submit_new_team_btn= document.querySelector('.submit_new_team_btn');
 const new_teamname_input = document.querySelector('.new_teamname_input');
 const teamshortform_input = document.querySelector('.teamshortform_input');
-
+const selectTeams = document.querySelector('.selectTeams')
+const select_team_btn = document.querySelector('.select_team_btn');
+const manage_players_div = document.querySelector('.manage_players_div')
+const add_player_btn = document.querySelector('.add_player_btn')
+const playername_input = document.querySelector('.playername_input');
+const display_add_new_team_btn = document.querySelector('.display_add_new_team_btn');
+const display_edit_team_btn = document.querySelector('.display_modify_team_btn');
+const add_team_div = document.querySelector('.add_team_div');
+const modify_team_div = document.querySelector('.modify_team_div');
+ 
 
 async function getScrims() {
 
@@ -161,11 +170,35 @@ manage_team_btn.addEventListener('click',()=>{
 
 })
 
-submit_team_btn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    // console.log('clicked add team button')
-    postTeams();
+display_add_new_team_btn.addEventListener("click", ()=>{
+
+
+    add_team_div.style.display="block";
+    modify_team_div.style.display="none";
 })
+
+display_edit_team_btn.addEventListener("click", ()=>{
+    add_team_div.style.display="none";
+    modify_team_div.style.display="block";
+});
+
+function addteamtoscrimdropdown(data){
+
+    for(let i=0; i<data.length; i++){
+        
+        const option = document.createElement('option');
+        option.value = data[i].teamname
+        option.innerText= data[i].teamname
+        add_team_to_scrim.appendChild(option);
+    }
+
+}
+
+// submit_team_btn.addEventListener('click', (e)=>{
+//     e.preventDefault();
+//     // console.log('clicked add team button')
+//     postTeams();
+// })
 
 select_scrim_btn.addEventListener('click', (e) =>{
     e.preventDefault();
@@ -301,31 +334,82 @@ register_new_team_btn.addEventListener("click", ()=>{
 manage_existing_team_btn.addEventListener("click", ()=>{
     manage_existing_team_div.style.display="block";
     register_new_team_div.style.display="none"
-    getTeamPlayers();
+    getAllTeams();
 })
 
 submit_new_team_btn.addEventListener("click",async()=>{
-    new_teamname_input, teamshortform_input
+    getAllTeams();
     try{
-        const data = await axios.post('/adminhome/addteamplayer',
-        {teamname:new_teamname_input.value, teamshortform:teamshortform_input.value , member_name: 'no players'})
+        const data = await axios.post('/adminhome/addnewteam',
+        {teamname:new_teamname_input.value, teamshortform:teamshortform_input.value })
     } 
     catch(error){console.log(error)}
 })
 
-async function getTeamPlayers (){
+async function getAllTeams (){
 
-    axios.get()
     try{
-        let data = await axios.get('/adminhome/getteamplayers')
+        let data = await axios.get('/adminhome/getallteams')
         //console.log('get questions aa gaya',data);
-        console.log(data.data);
+        console.log(data);
         
-        addtoselectteamdropdown(data.data.uniqueTeams);
+        addtoselectteamdropdown(data.data);
+        addteamtoscrimdropdown(data.data);
         }
     catch (e) {console.log(e)}
 }
 
-function addtoselectteamdropdown(data){
 
+function addtoselectteamdropdown(data){
+    // console.log(data);
+        
+    for(let i=0; i<data.length; i++){
+        
+        const option = document.createElement('option');
+        option.value = data[i].teamname
+        option.innerText= data[i].teamname
+        selectTeams.appendChild(option);
+    }
+
+}
+
+select_team_btn.addEventListener("click", ()=>{
+    getAllPlayers();
+    manage_players_div.style.display="block";
+})
+
+add_player_btn.addEventListener("click", async()=>{
+    selectPlayers.innerHTML = "";
+    getAllPlayers();
+    console.log(selectTeams.value, playername_input.value);
+
+    try{
+        const data = await axios.post('/adminhome/addnewplayer',
+        {teamname:selectTeams.value, member_name:playername_input.value })
+        console.log(data);
+    } 
+    catch(error){console.log(error)}
+})
+
+async function getAllPlayers(){
+    try{
+        let data = await axios.get('/adminhome/getallplayers')
+        //console.log('get questions aa gaya',data);
+        // console.log(data);
+        
+        displayplayers(data.data);
+        }
+    catch (e) {console.log(e)}
+}
+const selectPlayers = document.querySelector('.selectPlayers')
+
+function displayplayers(data) {
+
+    for(let i=0; i<data.length; i++){
+        
+        const option = document.createElement('option');
+        option.value = data[i].member_name
+        option.innerText= data[i].member_name
+        selectPlayers.appendChild(option);
+    }
 }
