@@ -1,4 +1,4 @@
-const teamDB = require('../models/teamDB')
+const teamDB = require('../models/team_scrimDB')
 
 module.exports.addTeam = async (req, res) => {
    

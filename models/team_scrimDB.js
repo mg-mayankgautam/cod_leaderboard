@@ -11,4 +11,4 @@ const teamSchema = new Schema({
 
 });
 
-module.exports =mongoose.model('teams',teamSchema);
+module.exports =mongoose.model('team_scrim',teamSchema);
