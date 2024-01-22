@@ -33,3 +33,14 @@ module.exports.addteamplayer = async(req, res) => {
        .catch(err =>{console.log(err);});
       }
 }
+
+
+module.exports.getteamplayer = async(req, res) => {
+
+    const allTeamPlayers=await teamPlayerDB.find({});
+    const uniqueTeams = await teamPlayerDB.distinct("teamname")
+    
+    console.log("all teamplayers",allTeamPlayers,"unique teams", uniqueTeams);
+
+    res.send({allTeamPlayers, uniqueTeams});
+}
