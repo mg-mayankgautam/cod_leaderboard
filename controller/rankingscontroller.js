@@ -1,5 +1,5 @@
 // const rankingDB = require('../models/rankingDB')
-const playerDB = require('../models/playerDB')
+const playerDB = require('../models/player_team_scrimDB')
 const scrimDB = require('../models/scrimDB')
 
 
