@@ -58,7 +58,7 @@ Admin Home
               
 
 
-            <div class="add_team_div" style="border: 1px solid black">
+            <div class="add_team_div" style="border: 1px solid black; display:none">
                 <h3>add new team to SCRIM </h3>   
                    
                     <select placeholder="Add Team to Scrim" class="add_team_to_scrim">
@@ -67,22 +67,13 @@ Admin Home
                 
             </div>
             
-            <div class="modify_team_div" style="border: 1px solid black">
+            <div class="modify_team_div" style="border: 1px solid black; display:none">
                 <h3>modify existing team data</h3>
 
                 {{!-- <form action="/adminhome/addteam" method="POST"> --}}
-                <div class="select_scrimname" >
-                    <form >
-                        <select name="scrimname" class="scrims2"  placeholder="Select Scrim">
-                            {{!-- <option value="Scrim 1">Scrim 1</option>
-                            <option value="Scrim 2">Scrim 2</option>
-                            <option value="Scrim 3">Scrim 3</option> --}}
-                        </select>
-                        <button class="select_scrim_btn">Select Scrim</button>
-                    </form> 
-                </div>    
+                
 
-                <div class="select_teamname" style="display: none;">
+                <div>
                     <div class="selected_scrim_name">
                     </div>
 
@@ -120,10 +111,11 @@ Admin Home
                         <button class="add_new_member_btn">add new member
                         </button>
                         <div style="display: none;" class="add_player_div">
-                            <form action="">
-                                <input type="text" name="member_name" placeholder="Add Member Name" class="member_name_input">
+                            
+                                <select placeholder="Add Member Name" class="member_name_input">
+                                    </select>
                                 <button class="submit_member_btn">Add</button>
-                            </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -149,7 +141,7 @@ Admin Home
     <button class="register_new_team_btn">register new team</button>
     <button class="manage_existing_team_btn">manage existing team</button>
 
-    <div class="register_new_team_div" >
+    <div class="register_new_team_div" style="display: none;" >
         <h3>register new team</h3>
         <input type="text" placeholder="teamname" name="teamname" class="new_teamname_input">
         <input type="text" placeholder="teamshortform" name="teamshortform" class="teamshortform_input">
