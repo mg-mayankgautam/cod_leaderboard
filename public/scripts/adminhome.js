@@ -301,7 +301,7 @@ register_new_team_btn.addEventListener("click", ()=>{
 manage_existing_team_btn.addEventListener("click", ()=>{
     manage_existing_team_div.style.display="block";
     register_new_team_div.style.display="none"
-    
+    getTeamPlayers();
 })
 
 submit_new_team_btn.addEventListener("click",async()=>{
@@ -312,3 +312,20 @@ submit_new_team_btn.addEventListener("click",async()=>{
     } 
     catch(error){console.log(error)}
 })
+
+async function getTeamPlayers (){
+
+    axios.get()
+    try{
+        let data = await axios.get('/adminhome/getteamplayers')
+        //console.log('get questions aa gaya',data);
+        console.log(data.data);
+        
+        addtoselectteamdropdown(data.data.uniqueTeams);
+        }
+    catch (e) {console.log(e)}
+}
+
+function addtoselectteamdropdown(data){
+
+}

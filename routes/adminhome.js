@@ -19,5 +19,6 @@ router.get('/getteams',teamController.getTeams);
 router.post('/addplayerdata',playerController.addplayerdata);
 router.get('/getplayerdata',playerController.getplayerdata);
 router.post('/addteamplayer', teamPlayercontroller.addteamplayer);
+router.get('/getteamplayers',teamPlayercontroller.getteamplayer);
 
 module.exports = router;
