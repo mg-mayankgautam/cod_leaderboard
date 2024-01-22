@@ -7,6 +7,10 @@ const display_add_scrim_btn= document.querySelector('.display_add_scrim_btn');
 const add_scrim_div = document.querySelector('.add_scrim_div');
 const display_modify_scrim_btn = document.querySelector('.display_modify_scrim_btn');
 const modify_scrim_div = document.querySelector('.modify_scrim_div');
+const submit_team_btn = document.querySelector('.submit_team_btn');
+const teamname_input = document.querySelector('.teamname_input'); 
+const selectScrim = document.querySelector('.scrims1')
+const manage_team_btn = document.querySelector('.manage_team_btn')
 
 async function getScrims() {
 
@@ -21,6 +25,15 @@ async function getScrims() {
     catch (e) {console.log(e)}
 
 };
+
+async function postTeams(){
+    console.log(selectScrim.value, teamname_input.value)
+    // axios.post()
+    // try{
+    //     const data = await axios.post('/adminhome/addteam', {scrimname: selectScrim.value, teamname: teamname_input.value})
+    // }
+    // catch (e) {console.log(e)}
+}
 
 async function getTeams(selectedscrim) {
 
@@ -67,8 +80,7 @@ function addtoplayersdropdown(data, selectedteam, selectedscrim){
 
 function addtodropdown1(data) {
     console.log(data);
-    const selectScrim = document.querySelector('.scrims1')
-    
+        
     for(let i=0; i<data.length; i++){
         
         const option = document.createElement('option');
@@ -126,6 +138,11 @@ getScrims();
 //getTeams();
 const scrims2=document.querySelector('.scrims2')
 
+submit_team_btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    // console.log('clicked add team button')
+    postTeams();
+})
 
 select_scrim_btn.addEventListener('click', (e) =>{
     e.preventDefault();

@@ -23,7 +23,7 @@ Admin Home
                  </div> --}}
     <div>
          <button class="">Manage SCRIM</button>
-         <button>Manage Team</button>
+         <button class="manage_team_btn">Manage Team</button>
     </div>
 
     <button class="display_add_scrim_btn">ADD new Scrim</button>
@@ -46,16 +46,15 @@ Admin Home
 
             <div class="add_team_div" style="border: 1px solid black">
                 <h3>add new team to SCRIM</h3>
-                <form action="/adminhome/addteam" method="POST">
-                    
-                    
+                <form action=''>
+                                        
                     <select name="scrimname" class="scrims1" placeholder="Select Scrim">
                         {{!-- <option value="Scrim 1">Scrim 1</option>
                         <option value="Scrim 2">Scrim 2</option>
                         <option value="Scrim 3">Scrim 3</option> --}}
                     </select>
-                    <input type="text" name="teamname" placeholder="Team Name">  
-                    <button class="submit">add new Team </button>
+                    <input type="text" name="teamname" placeholder="Team Name" class="teamname_input">  
+                    <button class="submit_team_btn">add new Team </button>
                 </form>
             </div>
             
