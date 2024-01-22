@@ -1,5 +1,5 @@
-const playerDB = require('../models/playerDB')
-const scrimDB = require('../models/scrimDB')
+const playerDB = require('../models/player_team_scrimDB.js')
+const scrimDB = require('../models/scrimDB.js')
 
 
 module.exports.addplayerdata = async(req, res) => {

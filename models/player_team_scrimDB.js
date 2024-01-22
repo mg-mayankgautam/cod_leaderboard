@@ -16,4 +16,4 @@ const playerSchema = new Schema({
    
 });
 
-module.exports =mongoose.model('Players',playerSchema);
+module.exports =mongoose.model('player_team_scrim',playerSchema);
