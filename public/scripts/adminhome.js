@@ -11,6 +11,18 @@ const submit_team_btn = document.querySelector('.submit_team_btn');
 const teamname_input = document.querySelector('.teamname_input'); 
 const selectScrim = document.querySelector('.scrims1')
 const manage_team_btn = document.querySelector('.manage_team_btn')
+const manage_scrim_btn = document.querySelector('.manage_scrim_btn')
+const manage_scrim_div = document.querySelector('.manage_scrim_div');
+const manage_team_div = document.querySelector('.manage_team_div');
+const register_new_team_btn = document.querySelector('.register_new_team_btn');
+const manage_existing_team_btn = document.querySelector('.manage_existing_team_btn')
+
+const register_new_team_div=document.querySelector('.register_new_team_div');
+const manage_existing_team_div=document.querySelector('.manage_existing_team_div');
+const submit_new_team_btn= document.querySelector('.submit_new_team_btn');
+const new_teamname_input = document.querySelector('.new_teamname_input');
+const teamshortform_input = document.querySelector('.teamshortform_input');
+
 
 async function getScrims() {
 
@@ -137,6 +149,17 @@ function addtoteamsdropdown(data,selectedscrim){
 getScrims();
 //getTeams();
 const scrims2=document.querySelector('.scrims2')
+
+manage_scrim_btn.addEventListener('click',()=>{
+    manage_scrim_div.style.display="block";
+    manage_team_div.style.display="none";
+})
+
+manage_team_btn.addEventListener('click',()=>{
+    manage_scrim_div.style.display="none";
+    manage_team_div.style.display="block";
+
+})
 
 submit_team_btn.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -266,4 +289,26 @@ display_add_scrim_btn.addEventListener("click", ()=>{
 display_modify_scrim_btn.addEventListener("click", ()=>{
     modify_scrim_div.style.display="block";
     add_scrim_div.style.display="none";
+})
+
+
+register_new_team_btn.addEventListener("click", ()=>{
+    manage_existing_team_div.style.display="none";
+    register_new_team_div.style.display="block"
+    
+})
+
+manage_existing_team_btn.addEventListener("click", ()=>{
+    manage_existing_team_div.style.display="block";
+    register_new_team_div.style.display="none"
+    
+})
+
+submit_new_team_btn.addEventListener("click",async()=>{
+    new_teamname_input, teamshortform_input
+    try{
+        const data = await axios.post('/adminhome/addteamplayer',
+        {teamname:new_teamname_input.value, teamshortform:teamshortform_input.value , member_name: 'no players'})
+    } 
+    catch(error){console.log(error)}
 })

@@ -22,10 +22,11 @@ Admin Home
                         </form>
                  </div> --}}
     <div>
-         <button class="">Manage SCRIM</button>
+         <button class="manage_scrim_btn">Manage SCRIM</button>
          <button class="manage_team_btn">Manage Team</button>
     </div>
 
+<div class="manage_scrim_div" style="display: none;">
     <button class="display_add_scrim_btn">ADD new Scrim</button>
     <button class="display_modify_scrim_btn">Modify Scrim Data</button>
 
@@ -131,7 +132,29 @@ Admin Home
                 </div>
             </div> 
     </div>
+    </div>
+
+<div class="manage_team_div" style="display: none;">
+    <button class="register_new_team_btn">register new team</button>
+    <button class="manage_existing_team_btn">manage existing team</button>
+
+    <div class="register_new_team_div" >
+        register new team
+        <input type="text" placeholder="teamname" name="teamname" class="new_teamname_input">
+        <input type="text" placeholder="teamshortform" name="teamshortform" class="teamshortform_input">
+        
+        <button class="submit_new_team_btn">submit team data</button>    
+    </div>
     
+    <div class="manage_existing_team_div" style="display: none;">
+        <h3>manage existing Team</h3>
+        select existing team
+        <select name="" id="">
+            <option value="" > option</option>
+        </select>
+    </div>
+</div>
+
 <script defer src="./scripts/adminhome.js"></script>
 
 </body>
