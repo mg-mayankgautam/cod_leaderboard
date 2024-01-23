@@ -19,6 +19,7 @@ router.get('/getscrims',scrimController.getScrims);
 
 router.post('/addteam',team_scrim_controller.addTeamToScrim);
 router.get('/getteams',team_scrim_controller.getTeams);
+router.post('/addteamentries', team_scrim_controller.addTeamEntries)
 
 router.post('/addplayerdata',player_team_scrim_controller.addplayerdata);
 router.get('/getplayerdata',player_team_scrim_controller.getplayerdata);
@@ -27,6 +28,6 @@ router.post('/addnewteam', teamController.addteam);
 router.get('/getallteams',teamController.getteam);
 
 router.post('/addnewplayer', playercontroller.addplayer);
-router.get('/getallplayers',playercontroller.getplayer);
+router.get('/getALLteamPlayers',playercontroller.getALLteamPlayers);
 
 module.exports = router;
