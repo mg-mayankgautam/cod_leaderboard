@@ -28,7 +28,7 @@ const manage_players_div = document.querySelector('.manage_players_div')
 const add_player_btn = document.querySelector('.add_player_btn')
 const playername_input = document.querySelector('.playername_input');
 const display_add_new_team_btn = document.querySelector('.display_add_new_team_btn');
-const display_edit_team_btn = document.querySelector('.display_modify_team_btn');
+const display_edit_team_btn = document.querySelector('.display_edit_team_btn');
 const add_team_div = document.querySelector('.add_team_div');
 const modify_team_div = document.querySelector('.modify_team_div');
  
