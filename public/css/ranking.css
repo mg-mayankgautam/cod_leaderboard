@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
 body{
-    /* font-family: 'Cinzel', serif; */
-    font-family: 'Teko', sans-serif;
+    font-family: 'Cinzel', serif;
+    /* font-family: 'Teko', sans-serif; */
     margin: 0;
     /* font-family: 'Roboto', sans-serif; */
     /* height: 100vh;
@@ -92,6 +92,10 @@ a:hover{
     /* padding: 5px 10px; */
 }
 .scrims> div:hover{background-color: black; color: white;}
+
+.selectedscrim{
+    background-color: black; color: white;
+}
 
 .leaderboard_div{
     flex-grow: 2;

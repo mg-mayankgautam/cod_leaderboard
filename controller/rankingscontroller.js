@@ -1,6 +1,7 @@
 // const rankingDB = require('../models/rankingDB')
 const playerDB = require('../models/player_team_scrimDB')
 const scrimDB = require('../models/scrimDB')
+const teamDB = require('../models/team_scrimDB')
 
 
  module.exports.getRankings = async(req,res)=>{
@@ -11,12 +12,12 @@ const scrimDB = require('../models/scrimDB')
      });}
 
 
- module.exports.getplayerdata= async(req,res)=>{
+ module.exports.getdata= async(req,res)=>{
 
-    const allPlayers = await playerDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
-    // console.log('yaha tak aa gayi request',allPlayers);
-     const allScrims=await scrimDB.find({});
+    const allPlayers = await playerDB.find({});
+    const allScrims=await scrimDB.find({});
+    const allTeams = await teamDB.find({});
     // console.log("scrims from DB",allScrims)
     
-     res.send({allPlayers,allScrims});
+     res.send({allScrims, allTeams ,allPlayers});
  };    
