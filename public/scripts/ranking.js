@@ -20,8 +20,6 @@ async function getdata(){
        addteamranking(e.target.className, data)
     })
 
-
-
 }
 
 function addtopage(data){
