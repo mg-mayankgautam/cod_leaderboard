@@ -3,14 +3,26 @@ const table_data = document.querySelector('.table_data')
 
 getdata();
 
+
 async function getdata(){
     try{
-    let data = await axios.get('/rankings/getdata');
-    console.log('incoming scrim data',data);
+    var data = await axios.get('/rankings/getdata');
+    //console.log('incoming scrim data',data);
     
     addtopage(data.data);
     }
     catch(err){console.log(err);}
+
+    scrims_page.addEventListener('click', (e)=>{
+        console.log(e.target.className);
+       
+        
+       // const selectedScrim = e.target.className
+       // console.log(selectedScrim);
+       addteamranking(e.target.className,data)
+    })
+
+
 
 }
 
@@ -28,20 +40,34 @@ function addtopage(data){
         scrims_page.appendChild(scrimsdiv);
     }
     
-    let playerdata = data.allPlayers
-    let teamdata = data.allTeams
     // console.log(className)
     // const selectedScrim = document.querySelector(`.${className}`)
     
-    scrims_page.addEventListener('click', (e)=>{
-        // console.log()
-        const selectedScrim = e.target.className
-        console.log(selectedScrim)
-        addteamranking(e.target.className, playerdata, teamdata)
-    })
+    
 }
 
 
-function addteamranking(selectedScrim, playerdata, teamdata) {
-    console.log(selectedScrim,playerdata,teamdata);
+
+
+
+function addteamranking(selectedScrim, data) {
+    
+    console.log(selectedScrim);
+    
+    let playerdata = data.data.allPlayers
+    let teamdata = data.data.allTeams
+    console.log(playerdata);
+     
+    const ScrimWiseTeam = teamdata.filter( (e)=> {return e.scrimname === selectedScrim} )
+    console.log('scrim wise team',ScrimWiseTeam)
+
+    
+
+     const teamWisePlayers = playerdata.filter( (e)=> {return e.teamname === ScrimWiseTeam.teamname})
+     console.log('team wise players',teamWisePlayers)
+
+    // for (let i = 0; i < teamWisePlayers.length; i++) {
+    //     console.log(teamWisePlayers[i].kills)
+        
+    // }
 }

@@ -258,7 +258,7 @@ submit_team_data_btn.addEventListener('click',async()=>{
 edit_player_entries_btn.addEventListener('click',()=>{
     edit_player_entries_div.style.display='block' ;
     get_Team_Scrim_Players(teams.value, selectScrim.value);
-    getALLteamPlayers(teams.value);
+    getALLteamPlayers(teams.value, selectScrim.value);
 
 });
 
@@ -308,17 +308,18 @@ add_new_member_btn.addEventListener('click', (e) =>{
    
     selected_member.style.display='none';
     add_player_div.style.display='block';
-    getALLteamPlayers(teams.value);
+    getALLteamPlayers(teams.value, selectScrim.value);
 
 });
 
 
-async function getALLteamPlayers(teamname){
-
+async function getALLteamPlayers(teamname, scrimname){
+    console.log(teamname)
     try{
         let data = await axios.get('/adminhome/getALLteamPlayers',{
             params: {
-              teamname: teamname
+              teamname: teamname,
+              scrimname: scrimname
             }});
         //console.log('get questions aa gaya',data);
          console.log(data);

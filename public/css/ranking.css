@@ -119,7 +119,7 @@ a:hover{
     align-self: center;
     justify-self: center;
 }
-.table_head>div:hover{background-color: beige;}
+/* .table_head>div:hover{background-color: beige;} */
 
 .table_data{
     display: grid;

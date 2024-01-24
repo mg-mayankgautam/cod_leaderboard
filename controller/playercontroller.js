@@ -32,13 +32,18 @@ module.exports.getALLteamPlayers = async (req, res) =>{
 //console.log('params',req.query.teamname);
     
      const teamname  = req.query.teamname;
+     const scrimname = req.query.scrimname
      const allPlayers=await playerDB.find({teamname});
      //console.log('allPlayers',allPlayers)
 
-     const playersalreadyADDedtoScrim=await player_team_scrimDB.find({teamname})
-      
+     const playersalreadyADDedtoScrim=await player_team_scrimDB.find({scrimname,teamname})
+
+      //console.log('playersalreadyADDedtoScrim',playersalreadyADDedtoScrim)
      
-     for(let i = 0;i<playersalreadyADDedtoScrim.length;i++){ for(let j=0;j<allPlayers.length;j++){ if(playersalreadyADDedtoScrim[i].member_name === allPlayers[j].member_name){allPlayers.splice(j,1); continue;}     }  }
+     for(let i = 0;i<playersalreadyADDedtoScrim.length;i++){ for(let j=0;j<allPlayers.length;j++){ 
+      if(playersalreadyADDedtoScrim[i].member_name === allPlayers[j].member_name){
+         allPlayers.splice(j,1); continue;}    
+       }  }
 
 
     // console.log(allPlayers);

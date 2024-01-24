@@ -8,19 +8,25 @@ module.exports.addplayerdata = async(req, res) => {
 
    
     const player = await playerDB.findOne({member_name,scrimname,teamname});
-    //console.log(player);
+   // console.log('prevplayerkills',player.kills);
 
 
     if(player){
         console.log('error player already exists');
 
-        // const dataFromTeam_scribDB = await team_scrimDB.findOne({scrimname,teamname}); 
-       
-        //console.log('dataFromTeam_scribDB',dataFromTeam_scribDB.team_total_kills);
 
-        // const team_total_kills= Number(kills) + Number(dataFromTeam_scribDB.team_total_kills);
+
+         const dataFromTeam_scribDB = await team_scrimDB.findOne({scrimname,teamname}); 
+        
+
+         
+        console.log('dataFromTeam_scribDB',dataFromTeam_scribDB.team_position_pts);
+        const prev=           Number(dataFromTeam_scribDB.team_total_kills) - Number(player.kills)  
+        const team_total_kills= Number(kills) + Number(prev) 
        
-        // console.log('teamTotalkills',team_total_kills);
+        const team_total_pts = Number(team_total_kills) * Number(dataFromTeam_scribDB.team_position_pts);
+        
+        console.log('teamTotalkills',team_total_kills);
 
         
      
@@ -33,12 +39,12 @@ module.exports.addplayerdata = async(req, res) => {
           .catch(err =>{console.log(err);});
         
 
-        //  team_scrimDB.updateOne({scrimname, teamname},{team_total_kills})    //, team_total_points
-        //  .then(()=>{
-        //      console.log('updated player data')
+         team_scrimDB.updateOne({scrimname, teamname},{team_total_kills,team_total_pts})    //, team_total_points
+         .then(()=>{
+             console.log('updated team data')
        
-        //      })
-        //  .catch(err =>{console.log(err);});
+             })
+         .catch(err =>{console.log(err);});
 
     }
     else{
