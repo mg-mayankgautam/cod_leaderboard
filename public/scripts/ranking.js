@@ -14,12 +14,10 @@ async function getdata(){
     catch(err){console.log(err);}
 
     scrims_page.addEventListener('click', (e)=>{
-        console.log(e.target.className);
-       
-        
-       // const selectedScrim = e.target.className
-       // console.log(selectedScrim);
-       addteamranking(e.target.className,data)
+        // console.log(e.target.className);
+    //    const selectedscrim = e.target
+    //    e.target.classlist.add('')
+       addteamranking(e.target.className, data)
     })
 
 
@@ -51,23 +49,46 @@ function addtopage(data){
 
 
 function addteamranking(selectedScrim, data) {
-    
+      table_data.innerHTML=''
     console.log(selectedScrim);
     
     let playerdata = data.data.allPlayers
     let teamdata = data.data.allTeams
-    console.log(playerdata);
+    // console.log(playerdata);
      
     const ScrimWiseTeam = teamdata.filter( (e)=> {return e.scrimname === selectedScrim} )
     console.log('scrim wise team',ScrimWiseTeam)
 
-    
+    // homes.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 
-     const teamWisePlayers = playerdata.filter( (e)=> {return e.teamname === ScrimWiseTeam.teamname})
-     console.log('team wise players',teamWisePlayers)
+    const teamranking = ScrimWiseTeam.sort((a, b) => parseFloat(b.team_total_pts) - parseFloat(a.team_total_pts));
 
-    // for (let i = 0; i < teamWisePlayers.length; i++) {
-    //     console.log(teamWisePlayers[i].kills)
+    console.log('descending order',teamranking)
+
+  
+    for (let i = 0; i < teamranking.length; i++) {
         
-    // }
+        const rank = document.createElement('div');
+        rank.innerText  = Number([i])+ Number(1)
+        const team = document.createElement('div');
+        team.innerText= teamranking[i].teamname
+        const matchwins = document.createElement('div');
+        matchwins.innerText = teamranking[i].team_wins
+        const positionpts = document.createElement('div');
+        positionpts.innerText = teamranking[i].team_position_pts
+        const teamkills = document.createElement('div');
+        teamkills.innerText = teamranking[i].team_total_kills
+        const totalpts = document.createElement('div');
+        totalpts.innerText = teamranking[i].team_total_pts
+
+        table_data.appendChild(rank)
+        table_data.appendChild(team)
+        table_data.appendChild(matchwins)
+        table_data.appendChild(positionpts)
+        table_data.appendChild(teamkills)
+        table_data.appendChild(totalpts)
+
+        // console.log([i] , 1)
+    }
+
 }
