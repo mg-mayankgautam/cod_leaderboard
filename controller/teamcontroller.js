@@ -1,4 +1,5 @@
 const teamDB = require('../models/teamDB');
+const team_scrimDB = require('../models/team_scrimDB');
 
 module.exports.addteam = async(req, res) => {
     console.log(req.body);
@@ -37,10 +38,21 @@ module.exports.addteam = async(req, res) => {
 
 module.exports.getteam = async(req, res) => {
 
+    const scrimname = req.query.scrimname
+    
     const allTeams=await teamDB.find({});
     // const uniqueTeams = await teamDB.distinct("teamname")
     
-    // console.log("all teamplayers",allTeamPlayers,"unique teams", uniqueTeams);
+    const teamsalreadyADDedtoScrim = await team_scrimDB.find({scrimname})
+
+    //   //console.log('playersalreadyADDedtoScrim',playersalreadyADDedtoScrim)
+     
+     for(let i = 0; i< teamsalreadyADDedtoScrim.length; i++){ 
+        for(let j=0; j<allTeams.length; j++){
+            if(teamsalreadyADDedtoScrim[i].teamname === allTeams[j].teamname){
+                allTeams.splice(j,1); continue;}    
+       }  
+    }
 
     res.send(allTeams);
 }
