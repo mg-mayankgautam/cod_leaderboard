@@ -119,7 +119,7 @@ function addtodropdown1(data) {
 
 
 display_add_new_team_btn.addEventListener("click", ()=>{
-    add_team_to_scrim.innerHTML="";
+    
     getAllTeams();
     add_team_div.style.display="block";
     modify_team_div.style.display="none";
@@ -141,7 +141,11 @@ display_edit_team_btn.addEventListener("click", ()=>{
 async function getAllTeams (){
 
     try{
-        let data = await axios.get('/adminhome/getallteams')
+        let data = await axios.get('/adminhome/getallteams', {
+            params: {
+                scrimname: selectScrim.value
+            }
+        })
         //console.log('get questions aa gaya',data);
         // console.log(data);
         
@@ -153,7 +157,7 @@ async function getAllTeams (){
 
 
 function addteamtoscrimdropdown(data){
-
+    add_team_to_scrim.innerHTML="";
     for(let i=0; i<data.length; i++){
         
         const option = document.createElement('option');
@@ -173,6 +177,7 @@ submit_team_btn.addEventListener('click', async()=>{
         console.log(data)
     }
     catch (e) {console.log(e)}
+    await getAllTeams();
 })
 
 // add new team to scrim ↑↑↑↑↑↑↑↑↑↑↑↑↑
@@ -366,7 +371,7 @@ submit_member_btn.addEventListener('click',async () =>{
     }
 
     catch(error){console.log(error)}
-   await getALLteamPlayers(teams.value);
+   await getALLteamPlayers(teams.value, selectScrim.value);
   await  get_Team_Scrim_Players(teams.value, selectScrim.value);
     
 });

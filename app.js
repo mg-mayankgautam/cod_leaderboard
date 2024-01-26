@@ -3,6 +3,7 @@ const express = require('express');
 const app= express();
 const PORT = 4700;
 const hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 const bodyparser = require('body-parser');//use with axios 
 const mongoose = require('mongoose');
 
@@ -20,6 +21,7 @@ app.use(bodyparser.json());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 const store = new MongoDBsession({

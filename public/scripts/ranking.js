@@ -9,22 +9,22 @@ async function getdata(){
     var data = await axios.get('/rankings/getdata');
     //console.log('incoming scrim data',data);
     
-    addtopage(data.data);
+    addscrimstopage(data.data);
+    addteamranking(data.data.allScrims[0].scrimname, data)
+
     }
     catch(err){console.log(err);}
 
     scrims_page.addEventListener('click', (e)=>{
         // console.log(e.target.className);
     //    const selectedscrim = e.target
-    //    e.target.classlist.add('')
+       e.target.classlist.add('selected');
        addteamranking(e.target.className, data)
     })
 
-
-
 }
 
-function addtopage(data){
+function addscrimstopage(data){
 
     let scrims = data.allScrims
     // let firstScrim=scrims[0].scrimname
@@ -40,8 +40,6 @@ function addtopage(data){
     
     // console.log(className)
     // const selectedScrim = document.querySelector(`.${className}`)
-    
-    
 }
 
 
@@ -59,7 +57,6 @@ function addteamranking(selectedScrim, data) {
     const ScrimWiseTeam = teamdata.filter( (e)=> {return e.scrimname === selectedScrim} )
     console.log('scrim wise team',ScrimWiseTeam)
 
-    // homes.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
 
     const teamranking = ScrimWiseTeam.sort((a, b) => parseFloat(b.team_total_pts) - parseFloat(a.team_total_pts));
 
