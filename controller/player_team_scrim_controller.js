@@ -24,7 +24,7 @@ module.exports.addplayerdata = async(req, res) => {
         const prev=           Number(dataFromTeam_scribDB.team_total_kills) - Number(player.kills)  
         const team_total_kills= Number(kills) + Number(prev) 
        
-        const team_total_pts = Number(team_total_kills) * Number(dataFromTeam_scribDB.team_position_pts);
+        const team_total_pts = Number(team_total_kills) + Number(dataFromTeam_scribDB.team_position_pts);
         
         console.log('teamTotalkills',team_total_kills);
 

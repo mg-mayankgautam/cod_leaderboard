@@ -64,7 +64,7 @@ module.exports.addTeamEntries=async (req, res) => {
 
   const team = await teamDB.findOne({scrimname,teamname});
 
-  const team_total_pts=Number(team.team_total_kills)*Number(team_position_pts);
+  const team_total_pts=Number(team.team_total_kills)+ Number(team_position_pts);
 
   teamDB.updateOne({scrimname,teamname},{team_wins, team_position_pts,team_total_pts})
   .then(()=>{
