@@ -245,7 +245,8 @@ submit_team_data_btn.addEventListener('click',async()=>{
     console.log(team_wins.value, position_points.value) ;
     axios.post()
     try{
-        const data = await axios.post('/adminhome/addteamentries', {scrimname: selectScrim.value, 
+        const data = await axios.post('/adminhome/addteamentries', {
+            scrimname: selectScrim.value, 
             teamname: teams.value,
             team_wins: team_wins.value,
             team_position_pts: position_points.value
@@ -422,10 +423,13 @@ register_new_team_btn.addEventListener("click", ()=>{
 
 
 submit_new_team_btn.addEventListener("click",async()=>{
-    getAllTeams_forManage();
+    
     try{
         const data = await axios.post('/adminhome/addnewteam',
         {teamname:new_teamname_input.value, teamshortform:teamshortform_input.value })
+        getAllTeams_forManage();
+        new_teamname_input.value='';
+        teamshortform_input.value='';
     } 
     catch(error){console.log(error)}
 })
@@ -494,7 +498,7 @@ async function getALLteamPlayers_forManage(teamname){
               teamname: teamname
             }});
         //console.log('get questions aa gaya',data);
-         console.log(data);
+        //  console.log(data);
         
         
          addALLteamPlayersDropdown_forManage(data.data)
@@ -526,7 +530,8 @@ add_player_btn.addEventListener("click", async()=>{
     try{
         const data = await axios.post('/adminhome/addnewplayer',
         {teamname:selectTeams.value, member_name:playername_input.value })
-        console.log(data);
+        // console.log(data);
+        playername_input.value='';
     } 
     catch(error){console.log(error)}
 

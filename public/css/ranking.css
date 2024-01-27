@@ -14,6 +14,7 @@ body{
 }
 h1{
     font-family: 'Cinzel', serif;
+    padding: 20px 20px 0px;
 }
 
 .navbar{
@@ -24,33 +25,27 @@ h1{
     /* gap: 50px; */
     display: grid;
     grid-template-columns: 3fr repeat(8, 1fr);
-    grid-auto-rows: minmax(50px, 50px);
-    grid-gap: 5px;
-    height: 50px;
+    grid-auto-rows: minmax(60px, 60px);
+    grid-gap: 10px;
+    height: 60px;
     position: sticky;
     top: 0;
     background-color: black;
     color: white;
     font-weight: bold ;
     font-size: large;
-    margin-left: 15px;
 }
 .navbar > a {
     justify-self: center;
     align-self: center;
-}
-a{
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 0 5px; */
     color: white;
     text-decoration: none;
+    font-size: medium;
 }
-a:hover{
-    /* background-color: rgb(20, 20, 34); */
-    text-decoration: underline;
+
+.navbar > a:hover{
+    /* text-decoration: underline; */
+    color: rgb(8, 108, 78);
 }
 
 .logo_nav{
@@ -60,29 +55,31 @@ a:hover{
     padding: 5px 0 0;
     position: sticky;
     left: 0;
+    margin-left: 15px;
 }
 
 .ranking_body{
     display: flex;
     flex-direction: column;
-    margin: 10px 15px 10px;
+    margin: 0px 0px 0px;
     gap: 20px;
 }
 
 .scrims_div{
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 0px;
+    /* padding: 20px 20px 0px; */
     margin-bottom: 0;
     background-color: white;
     color: black;
-    border-radius: 3px;
+    /* border-radius: 3px; */
 }
 
 .scrims{
     display: flex;
     gap: 1px;
     height: 30px;
+    padding: 0px 20px 0px;
 }
 .scrims> div{
     display: flex;
@@ -93,22 +90,41 @@ a:hover{
     /* text-align: center; */
     height: 100%;
     width: 100px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    /* border-top-right-radius: 10px; */
+    /* border-top-left-radius: 10px; */
     /* padding: 5px 10px; */
 }
-.scrims> div:hover{background-color: black; color: white;}
+.scrims> div:hover{
+    color: rgb(8, 108, 78);
+}
 
-.selectedscrim{
-    background-color: black; color: white;
+.selected{
+    background-color: rgb(8, 108, 78); color: white;
+}
+.scrims> div.selected:hover{
+    color: white;
+}
+
+.scrim_separator{
+    margin: 0 0 0;
+    background-color: rgb(8, 108, 78);
+    height: 5px;
+    padding: 0;
+}
+
+h2{
+    display: flex;
+    /* margin-left: 15px; */
+    align-items: center;
+    justify-content: center;
 }
 
 .leaderboard_div{
     flex-grow: 2;
-    padding: 20px 20px;
-    background-color: white;
-    color: black;
-    border-radius: 3px;
+    padding: 0 20px 20px;
+    background-color: black;
+    color: white;
+    /* border-radius: 3px; */
 }
 
 .table_head{
@@ -117,9 +133,9 @@ a:hover{
     grid-auto-rows: minmax(40px, auto) ;
     grid-gap: 5px;
     /* justify-content: center; */
-    background-color: black;
-    color: white;
-    border-radius: 3px;
+    background-color: white;
+    color: black;
+    /* border-radius: 3px; */
 }
 .table_head>div{
     align-self: center;

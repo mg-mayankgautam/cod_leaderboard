@@ -16,10 +16,9 @@ async function getdata(){
     catch(err){console.log(err);}
 
     scrims_page.addEventListener('click', (e)=>{
-        // console.log(e.target.className);
-    //    const selectedscrim = e.target
-       e.target.classlist.add('selected');
-       addteamranking(e.target.className, data)
+    
+        addteamranking(e.target.className, data)
+        changeButton(e)
     })
 
 }
@@ -27,28 +26,24 @@ async function getdata(){
 function addscrimstopage(data){
 
     let scrims = data.allScrims
-    // let firstScrim=scrims[0].scrimname
-    // console.log('1st scrims',firstScrim);
+    let firstScrim = scrims[0].scrimname
     
     for(let i=0; i<scrims.length; i++){
         var className = scrims[i].scrimname
         const scrimsdiv =document.createElement('div');
         scrimsdiv.innerHTML =scrims[i].scrimname;
         scrimsdiv.className=className
+        if(i===0){scrimsdiv.classList.add('selected')}
         scrims_page.appendChild(scrimsdiv);
     }
     
-    // console.log(className)
-    // const selectedScrim = document.querySelector(`.${className}`)
 }
-
-
 
 
 
 function addteamranking(selectedScrim, data) {
       table_data.innerHTML=''
-    console.log(selectedScrim);
+    // console.log(selectedScrim);
     
     let playerdata = data.data.allPlayers
     let teamdata = data.data.allTeams
@@ -88,4 +83,14 @@ function addteamranking(selectedScrim, data) {
         // console.log([i] , 1)
     }
 
+}
+
+
+function changeButton(e){
+    var oldSelected = document.getElementsByClassName("selected")
+    console.log(oldSelected)
+    for(var i=0; i<oldSelected.length; i++){
+        oldSelected[i].classList.remove("selected")
+    }
+    e.target.classList.add("selected")
 }

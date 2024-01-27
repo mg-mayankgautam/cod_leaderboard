@@ -1,7 +1,9 @@
+require("dotenv").config();
+
 const path = require('path');
 const express = require('express');
 const app= express();
-const PORT = 4700;
+const PORT = process.env.PORT || 4700;
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 const bodyparser = require('body-parser');//use with axios 
@@ -25,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const store = new MongoDBsession({
-    uri:'mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/HouseOfesports?retryWrites=true&w=majority',
+    uri: process.env.MONGODB_URL,
     collection: "mysessions"
 });
 
@@ -71,7 +73,7 @@ app.use('/adminhome', adminhomeRouter);
 
 
 
-mongoose.connect('mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/HouseOfesports?retryWrites=true&w=majority',{
+mongoose.connect(process.env.MONGODB_URL ,{
 //    useNewUrlParser: true,
 //    useUnifiedTopology: true,
    // useCreateIndex: true
