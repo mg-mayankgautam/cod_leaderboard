@@ -5,7 +5,7 @@
 // operations on our collections 
 const { MongoClient } = require('mongodb');
 // const url = 'mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/?';
-const url = 'mongodb+srv://mayankgautam0811:wwZnjaDJ_tGG5Yw@cluster0.hv7zef4.mongodb.net/HouseOfesports?retryWrites=true&w=majority';
+const url = process.env.MONGODB_URL;
 //const url = 'mongodb+srv://mansha02:mnm1234@cluster0.5ta8qjf.mongodb.net/?retryWrites=true&w=majority';
 
 const client = new MongoClient(url);
@@ -31,22 +31,6 @@ const getDB = ()=>{
 
 module.exports.mongoConnect = mongoConnect;
 module.exports.getDB = getDB;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
