@@ -28,9 +28,22 @@
         <div class="scrim_separator"></div>
         </div>
 
-     
+        <div class="Team_Rankings" style="display: block;">  <h2>Team Rankings</h2></div>
+        <div class="player_Rankings" style="display: none;"><h2>player Rankings</h2></div>
+        
+        <div class="ranking_select">
+                    <select name="scrimname" class="ranking_select_child" placeholder="Select Scrim">
+                        <option value="team rankings"> team rankings    </option>
+                        <option value="player rankings">player rankings </option>
+                        
+                    </select>
+        </div>
+
+
         <div class="leaderboard_div">
-               <h2>Team Rankings</h2>
+               
+               
+               
             <div class="leaderboard">
                 <div class="table_head">
                         <div class="rank">Rank</div>
@@ -41,11 +54,33 @@
                         <div class="damage" style="display: none;">Damage</div>
                         <div class="totalpts">Total Pts</div>
                 </div>
-                <div class="table_data">
+                 <div class="table_data">
                        
                 </div>
             </div>
         </div>
+
+
+        
+               
+              
+         <div class="leaderboard_div_players" style="display:none;">
+             
+            <div class="leaderboard">
+                <div class="table_head_p">
+                        <div class="rank">Rank</div>
+                        <div class="playername">playername</div>
+                        <div class="kills">Kills</div>
+                        <div class="damage">Damage</div>
+                       
+                </div>
+                 <div class="table_data_players">
+                       
+                </div>
+            </div>
+        </div>
+
+
         
     </div>
 <script defer src="./scripts/ranking.js"></script>
