@@ -1,4 +1,6 @@
 const scrimDB = require('../models/scrimDB')
+const team_scrimDB = require('../models/team_scrimDB');
+const player_team_scrimDB = require('../models/player_team_scrimDB');
 
 module.exports.addScrim = async(req, res) => {
   //  console.log(req.body);
@@ -35,4 +37,19 @@ module.exports.getScrims = async (req, res) => {
   //  console.log("scrims from DB",allScrims)
 
     res.send(allScrims);
+}
+
+module.exports.deleteScrim = async (req, res) => {
+  console.log("deleteScrim reached");
+    const {scrimname} = req.body;
+    try{
+        await scrimDB.deleteOne({scrimname:scrimname});
+        await team_scrimDB.deleteMany({scrimname:scrimname});
+        await player_team_scrimDB.deleteMany({scrimname:scrimname});
+
+        console.log("deleteScrim");
+        res.redirect('/adminhome');
+
+    }
+    catch(err){}
 }

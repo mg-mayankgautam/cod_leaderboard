@@ -92,7 +92,9 @@ function addteamranking(data) {
         const team = document.createElement('div');
         team.innerText= teamranking[i].teamname
         const matchwins = document.createElement('div');
-        matchwins.innerText = teamranking[i].team_wins
+        matchwins.innerText = teamranking[i].team_wins;
+        const played_matches = document.createElement('div');
+        played_matches.innerText = teamranking[i].played_matches;
         const positionpts = document.createElement('div');
         positionpts.innerText = teamranking[i].team_position_pts
         const teamkills = document.createElement('div');
@@ -103,6 +105,7 @@ function addteamranking(data) {
         table_data.appendChild(rank)
         table_data.appendChild(team)
         table_data.appendChild(matchwins)
+        table_data.appendChild(played_matches)
         table_data.appendChild(positionpts)
         table_data.appendChild(teamkills)
         table_data.appendChild(totalpts)
@@ -220,6 +223,8 @@ function addplayerranking(data){
         rank.innerText  = Number([i])+ Number(1);
         const player = document.createElement('div');
         player.innerText= playerranking[i].member_name;
+        const teamname = document.createElement('div');
+        teamname.innerText = playerranking[i].teamname;
         const kills = document.createElement('div');
         kills.innerText = playerranking[i].kills;
         const damage = document.createElement('div');
@@ -227,6 +232,7 @@ function addplayerranking(data){
 
         table_data_players.appendChild(rank);
         table_data_players.appendChild(player);
+        table_data_players.appendChild(teamname);
         table_data_players.appendChild(kills);
         table_data_players.appendChild(damage);
 

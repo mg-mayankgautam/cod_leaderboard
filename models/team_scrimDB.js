@@ -10,6 +10,7 @@ const teamSchema = new Schema({
    teamname:{type:String,required:true},
    team_wins:{type:Number,required:true},
    team_position_pts:{type:Number,required:true}, 
+   played_matches: {type:Number,required:true},
    team_total_kills:{type:Number,required:true}, 
    team_total_pts:{type:Number,required:true}
 

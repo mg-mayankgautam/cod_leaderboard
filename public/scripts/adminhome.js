@@ -7,6 +7,8 @@ const display_add_scrim_btn= document.querySelector('.display_add_scrim_btn');
 const add_scrim_div = document.querySelector('.add_scrim_div');
 const display_modify_scrim_btn = document.querySelector('.display_modify_scrim_btn');
 const modify_scrim_div = document.querySelector('.modify_scrim_div');
+const delete_scrim_div = document.querySelector('.delete_scrim_div');
+const display_delete_scrim_btn = document.querySelector('.display_delete_scrim_btn');
 const submit_team_btn = document.querySelector('.submit_team_btn');
 const add_team_to_scrim = document.querySelector('.add_team_to_scrim'); 
 const selectScrim = document.querySelector('.scrims1')
@@ -31,17 +33,19 @@ const display_add_new_team_btn = document.querySelector('.display_add_new_team_b
 const display_edit_team_btn = document.querySelector('.display_edit_team_btn');
 const add_team_div = document.querySelector('.add_team_div');
 const modify_team_div = document.querySelector('.modify_team_div');
+const display_delete_team_btn = document.querySelector('.display_delete_team_btn');
+const delete_team_scrim_div = document.querySelector('.delete_team_scrim_div');
+const delete_team_scrim_btn = document.querySelector('.delete_team_scrim_btn');
 
 const selected_scrim_name = document.querySelector('.selected_scrim_name');
 const team_wins = document.querySelector('.team_wins');
 const position_points = document.querySelector('.position_points');
- 
+const played_matches = document.querySelector('.played_matches');
 const submit_team_data_btn = document.querySelector('.submit_team_data_btn');
 
 const selectPlayers = document.querySelector('.selectPlayers')
 const selectPlayer = document.querySelector('.members');
-const selectTeam = document.querySelector('.teams')
-const scrims2=document.querySelector('.scrims2')
+// const selectTeam = document.querySelector('.teams')
 const teams = document.querySelector('.teams')
 const match_wins=document.querySelector('.match_wins');
 const kills=document.querySelector('.kills');
@@ -62,6 +66,10 @@ const manage_existing_players_btn = document.querySelector('.manage_existing_pla
 const manage_existing_players_div = document.querySelector('.manage_existing_players_div');
 const add_new_player_btn = document.querySelector('.add_new_player_btn');
 const add_players_div = document.querySelector('.add_players_div');
+const delete_scrim_btn= document.querySelector('.delete_scrim_btn');
+const selectDeleteScrim = document.querySelector('.scrims2');
+const selectDeleteTeam = document.querySelector('.teams2');
+const delete_member_scrim = document.querySelector('.delete_member_scrim');
 
 
 
@@ -80,6 +88,7 @@ manage_team_btn.addEventListener('click',()=>{
 display_add_scrim_btn.addEventListener("click", ()=>{
     add_scrim_div.style.display="block";
     modify_scrim_div.style.display="none";
+    delete_scrim_div.style.display="none";
 })
 
 display_modify_scrim_btn.addEventListener("click", ()=>{
@@ -87,6 +96,10 @@ display_modify_scrim_btn.addEventListener("click", ()=>{
     getScrims();
     modify_scrim_div.style.display="block";
     add_scrim_div.style.display="none";
+    delete_scrim_div.style.display="none";
+    add_team_div.style.display="none";
+    modify_team_div.style.display="none";
+    selected_team.style.display='none';
 })
 
 /////modify scrim/edit scrim↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -106,7 +119,7 @@ async function getScrims() {
 
 function addtodropdown1(data) {
     // console.log(data);
-        
+    selectScrim.innerHTML='';
     for(let i=0; i<data.length; i++){
         
         const option = document.createElement('option');
@@ -125,16 +138,17 @@ display_add_new_team_btn.addEventListener("click", ()=>{
     add_team_div.style.display="block";
     modify_team_div.style.display="none";
     selected_team.style.display="none";
+    delete_team_scrim_div.style.display="none";
 })
 
 display_edit_team_btn.addEventListener("click", ()=>{
-    selectTeam.innerHTML='';
-
     selected_scrim_name.innerHTML =`SELECTED SCRIM: ${selectScrim.value}`
 
     getTeams(selectScrim.value);
     add_team_div.style.display="none";
     modify_team_div.style.display="block";
+    selected_team.style.display="none";
+    delete_team_scrim_div.style.display="none";
 });
 
 // add new team to scrim ↓↓↓↓↓
@@ -202,6 +216,7 @@ async function getTeams(selectedscrim) {
 
 
 function addtoteamsdropdown(data,selectedscrim){
+    teams.innerHTML='';
     //    console.log(selectedscrim);
     
        const finaldata=data.filter((e)=>{
@@ -216,7 +231,7 @@ function addtoteamsdropdown(data,selectedscrim){
             const option = document.createElement('option');
             option.value = finaldata[i].teamname;//isme sirf naam dalna hai?
             option.innerText= finaldata[i].teamname;
-            selectTeam.appendChild(option);
+            teams.appendChild(option);
         }
     }
 
@@ -250,7 +265,8 @@ submit_team_data_btn.addEventListener('click',async()=>{
             scrimname: selectScrim.value, 
             teamname: teams.value,
             team_wins: team_wins.value,
-            team_position_pts: position_points.value
+            team_position_pts: position_points.value,
+            played_matches: played_matches.value
         })
         console.log(data)
     }
@@ -299,15 +315,31 @@ function addtoplayersdropdown(data, selectedteam, selectedscrim){
 }
 
 
-modify_member_data_btn.addEventListener('click', (e) => {
+modify_member_data_btn.addEventListener('click', () => {
     
-   
-    e.preventDefault();
-    display_selected_member_name.innerHTML=` selected member name: ${selectPlayer.value}  `;
     selected_member.style.display = 'block';
     add_player_div.style.display='none';
 })
 
+selectPlayer.addEventListener('click', () => {
+    delete_member_scrim.innerText= `remove ${selectPlayer.value}`;
+    display_selected_member_name.innerHTML=` selected member name: ${selectPlayer.value}`;
+})
+
+delete_member_scrim.addEventListener('click', async()=>{
+    try{
+        const data = await axios.post('/adminhome/removeplayer',
+        {
+            scrimname: selectScrim.value,
+            teamname: teams.value,
+            member_name: selectPlayer.value
+        })  
+      
+        await get_Team_Scrim_Players(teams.value, selectScrim.value);
+        await getALLteamPlayers(teams.value, selectScrim.value);
+      }
+      catch(e) {console.log(e)};
+})
 
 ///add new member to scrim↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -410,6 +442,114 @@ submit_player_data_btn.addEventListener('click', async(e)=>{
 
 
 //display/edit team/player entries↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+display_delete_team_btn.addEventListener("click",() =>{
+    getTeamstoDlt(selectScrim.value);
+    add_team_div.style.display="none";
+    modify_team_div.style.display="none";
+    selected_team.style.display="none";
+    delete_team_scrim_div.style.display="block";
+})
+
+async function getTeamstoDlt(selectedscrim) {
+
+    try{
+        let data = await axios.get('/adminhome/getteams')
+        //console.log('get questions aa gaya',data);
+        // console.log(data.data);
+
+        addtoteamstodelete(data.data,selectedscrim);
+        }
+    catch (e) {console.log(e)}
+
+};
+
+
+function addtoteamstodelete(data,selectedscrim){
+    selectDeleteTeam.innerHTML='';
+    
+       const finaldata=data.filter((e)=>{
+        if(e.scrimname===selectedscrim) return e})
+    
+        // console.log(finaldata);
+    
+        //const selectTeam = document.querySelector('.teams')
+        
+        for(let i=0; i<finaldata.length; i++){
+            
+            const option = document.createElement('option');
+            option.value = finaldata[i].teamname;
+            option.innerText= finaldata[i].teamname;
+            selectDeleteTeam.appendChild(option);
+        }
+    }
+
+delete_team_scrim_btn.addEventListener('click', async()=>{
+       
+        try{
+            const data = await axios.post('/adminhome/removeteam',
+            {
+                scrimname: selectScrim.value,
+                teamname: selectDeleteTeam.value
+            })  
+            // addtopage(data);
+            await getTeamstoDlt(selectScrim.value);
+          }
+          catch(e) {console.log(e)};
+    
+})
+
+
+
+display_delete_scrim_btn.addEventListener("click", ()=>{
+    
+    getScrimstoDlt();
+    modify_scrim_div.style.display="none";
+    add_scrim_div.style.display="none";
+    delete_scrim_div.style.display="block";
+})
+
+/////modify scrim/edit scrim↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+async function getScrimstoDlt() {
+
+    axios.get()
+    try{
+        let data = await axios.get('/adminhome/getscrims')
+        addtodeletescrimdropdown(data.data);
+        }
+    catch (e) {console.log(e)}
+
+};
+
+function addtodeletescrimdropdown(data) {
+    selectDeleteScrim.innerHTML='';
+    // console.log(data);
+        
+    for(let i=0; i<data.length; i++){
+        const option = document.createElement('option');
+        option.value = data[i].scrimname;
+        option.innerText= data[i].scrimname;
+        // option.id = data[i]._id;
+        selectDeleteScrim.appendChild(option);
+    }
+}
+
+delete_scrim_btn.addEventListener('click', async()=>{
+    // console.log(selectDeleteScrim.value,"lalala", selectDeleteScrim.id);
+    try{
+        const data = await axios.post('/adminhome/deletescrim',
+        {
+            scrimname: selectDeleteScrim.value
+        })  
+        // addtopage(data);
+        await getScrimstoDlt();
+      }
+      catch(e) {console.log(e)};
+    
+})
+
+
 
 
 

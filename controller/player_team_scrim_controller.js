@@ -65,9 +65,6 @@ module.exports.addplayerdata = async(req, res) => {
 
 
 
-
-
-
 module.exports.getplayerdata = async(req, res) => {
  
     const allPlayers = await playerDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
@@ -76,4 +73,21 @@ module.exports.getplayerdata = async(req, res) => {
     //console.log("scrims from DB",allScrims)
     res.send(allPlayers);
     //res.send({allPlayers,allScrims});
+}
+
+
+module.exports.removeplayer = async(req,res) =>{
+    console.log("delete player reached");
+    const {scrimname, teamname, member_name} = req.body;
+    try{
+        await playerDB.deleteOne({scrimname, 
+            teamname,
+            member_name
+        });
+
+        console.log("deleted player from scrim");
+        res.redirect('/adminhome');
+
+    }
+    catch(err){console.log(err)}
 }
