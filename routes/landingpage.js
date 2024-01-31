@@ -9,7 +9,9 @@ const shopController = require('../controller/shopcontroller.js');
 const playerController = require('../controller/playercontroller.js');
 
 router.get('/rankings', rankingsController.getRankings);
-router.get('/rankings/getdata', rankingsController.getdata);
+router.get('/rankings/getscrimdata', rankingsController.getscrimdata);
+router.get('/rankings/getteamsdata', rankingsController.getteamsdata);
+router.get('/rankings/getplayersdata', rankingsController.getplayersdata);
 
 
 router.get('/services', servicesController.getServices);

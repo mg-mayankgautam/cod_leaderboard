@@ -83,6 +83,7 @@ display_add_scrim_btn.addEventListener("click", ()=>{
 })
 
 display_modify_scrim_btn.addEventListener("click", ()=>{
+    
     getScrims();
     modify_scrim_div.style.display="block";
     add_scrim_div.style.display="none";
