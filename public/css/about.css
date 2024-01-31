@@ -1,32 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Roboto:ital@1&display=swap');
-
-body{
-    font-family: 'Cinzel', serif;
-    margin: 0;
-    /* font-family: 'Roboto', sans-serif; */
-    /* height: 100vh;
-    width: 100vw; */
-    background-color: black;
-}
-
-.navbar{
+.about_body{
     display: flex;
-    gap: 30px;
+    /* height: 100vh; */
+    flex-direction: column;
+    gap: 50px;
+    margin: 50px 20px;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    position: sticky;
-    top: 0;
-    background-color: black;
-    color: white;
-    /* font-weight: ; */
-}
-a{
-    color: white;
-    text-decoration: none;
 }
 
-.logo_nav{
-    width: 40px;
-    height: 40px;
+.nav_separator{
+    margin: 0 0 0;
+    background-color: white;
+    height: 3px;
+    padding: 0;
+}
+
+.tagline{
+    text-align: center;
+    font-size: xx-large;
+    width: 70%;
+}
+
+.tagline_meaning{
+    text-align: center;
+    font-size: large;
+    width: 90%;
+}
+
+@media(max-width:450px){
+    .tagline{
+        font-size: x-large;
+    }
+    .tagline_meaning{
+        font-size: small;
+    }
 }

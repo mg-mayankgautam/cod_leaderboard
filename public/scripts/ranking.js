@@ -91,6 +91,7 @@ function addteamranking(data) {
         rank.innerText  = Number([i])+ Number(1)
         const team = document.createElement('div');
         team.innerText= teamranking[i].teamname
+        team.className= 'teamname';
         const matchwins = document.createElement('div');
         matchwins.innerText = teamranking[i].team_wins;
         const played_matches = document.createElement('div');
@@ -223,8 +224,10 @@ function addplayerranking(data){
         rank.innerText  = Number([i])+ Number(1);
         const player = document.createElement('div');
         player.innerText= playerranking[i].member_name;
+        player.className='playername';
         const teamname = document.createElement('div');
         teamname.innerText = playerranking[i].teamname;
+        teamname.className= 'teamname';
         const kills = document.createElement('div');
         kills.innerText = playerranking[i].kills;
         const damage = document.createElement('div');
@@ -241,3 +244,16 @@ function addplayerranking(data){
 
 
 }
+
+const burger_icon = document.querySelector('.burger_icon');
+const mobile_nav = document.querySelector('.mobile_nav');
+const close_icon = document.querySelector('.close_icon');
+
+burger_icon.addEventListener('click',() =>{
+    mobile_nav.style.display = 'flex';
+    
+})
+
+close_icon.addEventListener('click',() =>{
+    mobile_nav.style.display = 'none';
+});
