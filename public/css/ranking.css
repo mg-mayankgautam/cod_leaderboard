@@ -174,7 +174,6 @@ h2{
 .table_data>div{
     align-self: center;
     justify-self: center;
-<<<<<<< HEAD
     /* z-index: 1; */
     /* opacity: 100%; */
 }
@@ -184,8 +183,6 @@ h2{
     left: 5;
     opacity: 10%;
 } */
-=======
-}
 
 .leaderboard_div_players{
     flex-grow: 2;
@@ -222,4 +219,3 @@ h2{
     align-self: center;
     justify-self: center;
 }
->>>>>>> 53d773ee509905653d4147ed83f563f717f5d6b2
