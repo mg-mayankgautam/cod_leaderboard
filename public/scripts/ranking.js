@@ -1,6 +1,13 @@
 const scrims_page = document.querySelector('.scrims');
 const table_data = document.querySelector('.table_data')
 const table_data_players = document.querySelector('.table_data_players');
+const leaderboard_div = document.querySelector(".leaderboard_div");
+const leaderboard_div_players = document.querySelector(".leaderboard_div_players");
+const ranking_select_child = document.querySelector('.ranking_select');
+const Team_Rankings = document.querySelector('.Team_Rankings');
+const player_Rankings = document.querySelector('.player_Rankings');
+
+
 
 Initial_ReloadData();
 
@@ -38,18 +45,6 @@ async function getScrimData(){
         return data
 }
 
-scrims_page.addEventListener('click', async (e)=>{
-    // const data = await Initial_ReloadData()   
-    // console.log(data);
-
-    await changeButton(e);
-    const teamdata = await getTeamsData(e.target.innerText);
-    addteamranking(teamdata);
-    const playerdata = await getPlayersData(e.target.innerText);
-    addplayerranking(playerdata);
-
-})
-
 function addscrimstopage(data){
 
     let scrims = data
@@ -64,6 +59,44 @@ function addscrimstopage(data){
         scrims_page.appendChild(scrimsdiv);
     }
     
+}
+
+scrims_page.addEventListener('click', async (e)=>{
+    // const data = await Initial_ReloadData()   
+    // console.log(data);
+
+    await changeButton(e);
+    const teamdata = await getTeamsData(e.target.innerText);
+    addteamranking(teamdata);
+    const playerdata = await getPlayersData(e.target.innerText);
+    addplayerranking(playerdata);
+
+})
+
+
+function changeButton(e){
+    var oldSelected = document.getElementsByClassName("selected")
+    // console.log(oldSelected)
+    for(var i=0; i<oldSelected.length; i++){
+        oldSelected[i].classList.remove("selected")
+    }
+    e.target.classList.add("selected")
+}
+
+
+async function getTeamsData(selectedScrim){
+    try{
+    var data = await axios.get('/rankings/getteamsdata',{
+        params: {
+            scrimname: selectedScrim
+        }
+
+    });
+    // console.log('incoming team data', data);
+
+    }
+    catch(err){console.log(err);}
+    return data
 }
 
 
@@ -116,76 +149,6 @@ function addteamranking(data) {
 
 }
 
-
-function changeButton(e){
-    var oldSelected = document.getElementsByClassName("selected")
-    // console.log(oldSelected)
-    for(var i=0; i<oldSelected.length; i++){
-        oldSelected[i].classList.remove("selected")
-    }
-    e.target.classList.add("selected")
-}
-
-
-
-
-
-
-const leaderboard_div = document.querySelector(".leaderboard_div");
-const leaderboard_div_players = document.querySelector(".leaderboard_div_players");
-const ranking_select_child = document.querySelector('.ranking_select');
-const Team_Rankings = document.querySelector('.Team_Rankings');
-const player_Rankings = document.querySelector('.player_Rankings');
-
-
-ranking_select_child.addEventListener('click',async(e)=>{
-
-    // console.log(e.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling);
-
-    var Selected = document.querySelector('.selected');
-    //console.log('wuuhuu',Selected.innerText);
-    
-
-    if(e.target.value=='player rankings'){
-      const data = await getPlayersData(Selected.innerText);
-      addplayerranking(data);
- //   console.log(Team_Rankings,player_Rankings)
-        Team_Rankings.style.display = 'none';
-        player_Rankings.style.display = 'block';
-        leaderboard_div.style.display = 'none';
-        leaderboard_div_players.style.display='block'
-         
-    }
-
-    if(e.target.value=='team rankings'){
-      //  console.log(Team_Rankings,player_Rankings)
-      const data = await getTeamsData(Selected.innerText);
-        addteamranking(data)
-        Team_Rankings.style.display = 'block';
-        player_Rankings.style.display = 'none';
-        leaderboard_div.style.display = 'block';
-        leaderboard_div_players.style.display='none'
-    }
-
-
-
-})
-
-
-async function getTeamsData(selectedScrim){
-    try{
-    var data = await axios.get('/rankings/getteamsdata',{
-        params: {
-            scrimname: selectedScrim
-        }
-
-    });
-    // console.log('incoming team data', data);
-
-    }
-    catch(err){console.log(err);}
-    return data
-}
 
 
 async function getPlayersData(selectedScrim){
@@ -245,15 +208,79 @@ function addplayerranking(data){
 
 }
 
-const burger_icon = document.querySelector('.burger_icon');
-const mobile_nav = document.querySelector('.mobile_nav');
-const close_icon = document.querySelector('.close_icon');
 
-burger_icon.addEventListener('click',() =>{
-    mobile_nav.style.display = 'flex';
+
+
+ranking_select_child.addEventListener('click',async(e)=>{
+
+    // console.log(e.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling);
+
+    var Selected = document.querySelector('.selected');
+    //console.log('wuuhuu',Selected.innerText);
     
+
+    if(e.target.value=='player rankings'){
+      const data = await getPlayersData(Selected.innerText);
+      addplayerranking(data);
+ //   console.log(Team_Rankings,player_Rankings)
+        Team_Rankings.style.display = 'none';
+        player_Rankings.style.display = 'block';
+        leaderboard_div.style.display = 'none';
+        leaderboard_div_players.style.display='block'
+         
+    }
+
+    if(e.target.value=='team rankings'){
+      //  console.log(Team_Rankings,player_Rankings)
+      const data = await getTeamsData(Selected.innerText);
+        addteamranking(data)
+        Team_Rankings.style.display = 'block';
+        player_Rankings.style.display = 'none';
+        leaderboard_div.style.display = 'block';
+        leaderboard_div_players.style.display='none'
+    }
+
+
+
 })
 
-close_icon.addEventListener('click',() =>{
-    mobile_nav.style.display = 'none';
-});
+
+// table_data.addEventListener('mouseover', async(e)=>{
+//    if(e.target.className==='teamname'){
+
+//     const div = await addplayerinfohover(e.target);
+//     div.style.display = 'flex';
+
+//    }
+//    else{
+//     // const player_info= document.getElementsByClassName('teamplayer_info');
+//     // player_info.style.display='none'
+// }
+// });
+
+
+// async function addplayerinfohover(team){
+//     var selected= document.querySelector('.selected');
+//     const data = await getPlayersData(selected.innerText);
+    
+//     const playerdata = data.data.filter( (p)=> {return p.teamname === team.innerText} )
+
+//     const player_info= document.createElement('div');
+//     player_info.className='teamplayer_info';
+//     player_info.id= team.innerText;
+    
+//     for(let i=0; i<playerdata.length; i++){
+//         const player = document.createElement('div');
+//         player.innerText=playerdata[i].member_name;
+//         player_info.appendChild(player);
+//     }
+
+//     team.appendChild(player_info);
+//     return player_info;
+// }
+
+
+// table_data.addEventListener('mouseout', async(e)=>{ 
+   
+        
+//  });

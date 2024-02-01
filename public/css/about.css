@@ -1,3 +1,4 @@
+
 .about_body{
     display: flex;
     height: 70vh;
@@ -6,13 +7,6 @@
     margin: 50px 20px;
     justify-content: center;
     align-items: center;
-}
-
-.nav_separator{
-    margin: 0 0 0;
-    background-color: white;
-    height: 3px;
-    padding: 0;
 }
 
 .tagline{
@@ -32,6 +26,11 @@
     gap: 20px;
     align-items: center;
 }
+
+.icons_list{
+    display: flex;
+    gap: 20px;
+}
 .icons{
     height: 40px;
     /* width: 20px; */
@@ -49,5 +48,8 @@
     .about_body{
         gap: 50px;
         margin: 25px 20px;
+    }
+    .contact_us{
+        flex-direction: column;
     }
 }
