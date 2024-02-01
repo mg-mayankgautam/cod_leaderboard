@@ -1,8 +1,8 @@
 .about_body{
     display: flex;
-    /* height: 100vh; */
+    height: 70vh;
     flex-direction: column;
-    gap: 50px;
+    gap: 80px;
     margin: 50px 20px;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
 .tagline{
     text-align: center;
     font-size: xx-large;
-    width: 70%;
+    width: 50%;
 }
 
 .tagline_meaning{
@@ -30,8 +30,14 @@
 @media(max-width:450px){
     .tagline{
         font-size: x-large;
+        width: 75%;
     }
     .tagline_meaning{
         font-size: small;
+        width: 99%;
+    }
+    .about_body{
+        gap: 50px;
+        margin: 25px 20px;
     }
 }
