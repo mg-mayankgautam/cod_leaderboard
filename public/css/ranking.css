@@ -84,8 +84,8 @@ h1{
     flex-direction: column;
     gap: 20px;
     padding: 10px 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: black;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 .nav_anchor_mobile {
     color: black;
@@ -297,6 +297,25 @@ h1{
 .table_head.responsive, .table_head_p.responsive{
     display: none;
 }
+
+/* .teamname{
+    position: relative;
+}
+.teamplayer_info{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    padding: 5px 5px;
+    left: 110%;
+    top: 5px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    width: max-content;
+    border-radius: 1px;
+} */
+
+
 
 
 @media(max-width:1010px){
