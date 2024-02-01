@@ -27,6 +27,16 @@
     width: 90%;
 }
 
+.contact_us{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.icons{
+    height: 40px;
+    /* width: 20px; */
+}
+
 @media(max-width:450px){
     .tagline{
         font-size: x-large;
