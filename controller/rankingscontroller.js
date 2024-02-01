@@ -1,7 +1,7 @@
 // const rankingDB = require('../models/rankingDB')
-const playerDB = require('../models/player_team_scrimDB')
+const player_team_scrimDB = require('../models/player_team_scrimDB')
 const scrimDB = require('../models/scrimDB')
-const teamDB = require('../models/team_scrimDB')
+const team_scrimDB = require('../models/team_scrimDB')
 
 module.exports.getRankings = async(req,res)=>{
     res.render('ranking',{
@@ -24,7 +24,7 @@ module.exports.getscrimdata= async(req,res)=>{
 
 module.exports.getteamsdata= async(req,res)=>{
     const scrimname = req.query.scrimname;
-    const allTeams = await teamDB.find({scrimname});
+    const allTeams = await team_scrimDB.find({scrimname});
     // console.log("from DB",allScrims)
     
      res.send(allTeams);
@@ -33,7 +33,7 @@ module.exports.getteamsdata= async(req,res)=>{
 
 module.exports.getplayersdata= async(req,res)=>{
     const scrimname = req.query.scrimname;
-    const allPlayers = await playerDB.find({scrimname});
+    const allPlayers = await player_team_scrimDB.find({scrimname});
       // console.log("from DB",allScrims)
     
      res.send(allPlayers);

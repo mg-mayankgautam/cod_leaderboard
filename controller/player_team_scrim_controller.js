@@ -1,4 +1,4 @@
-const playerDB = require('../models/player_team_scrimDB.js')
+const player_team_scrimDB = require('../models/player_team_scrimDB.js')
 const scrimDB = require('../models/scrimDB.js')
 const team_scrimDB = require('../models/team_scrimDB.js')
 
@@ -7,7 +7,7 @@ module.exports.addplayerdata = async(req, res) => {
     const {  member_name, scrimname, teamname, kills, damage} =req.body;
 
    
-    const player = await playerDB.findOne({member_name,scrimname,teamname});
+    const player = await player_team_scrimDB.findOne({member_name,scrimname,teamname});
    // console.log('prevplayerkills',player.kills);
 
 
@@ -31,7 +31,7 @@ module.exports.addplayerdata = async(req, res) => {
         
      
 
-        playerDB.updateOne(player, {kills, damage})
+        player_team_scrimDB.updateOne(player, {kills, damage})
           .then(()=>{
               console.log('updated player data')
              
@@ -50,7 +50,7 @@ module.exports.addplayerdata = async(req, res) => {
     else{
         console.log('player doesnt exist')
       
-      let newPlayer = new playerDB ({member_name, scrimname, teamname, kills, damage});
+      let newPlayer = new player_team_scrimDB ({member_name, scrimname, teamname, kills, damage});
 
       newPlayer.save()
        .then(()=>{
@@ -67,7 +67,7 @@ module.exports.addplayerdata = async(req, res) => {
 
 module.exports.getplayerdata = async(req, res) => {
  
-    const allPlayers = await playerDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
+    const allPlayers = await player_team_scrimDB.find({});//.select({ "currentUser":1, "question": 1, "_id": 1});
    // console.log('yaha tak aa gayi request',allPlayers);
     const allScrims=await scrimDB.find({});
     //console.log("scrims from DB",allScrims)
@@ -80,7 +80,7 @@ module.exports.removeplayer = async(req,res) =>{
     console.log("delete player reached");
     const {scrimname, teamname, member_name} = req.body;
     try{
-        await playerDB.deleteOne({scrimname, 
+        await player_team_scrimDB.deleteOne({scrimname, 
             teamname,
             member_name
         });
