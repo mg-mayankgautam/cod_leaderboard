@@ -269,7 +269,7 @@ function addplayerranking(data){
 
 
 
-ranking_select_child.addEventListener('click',async(e)=>{
+ranking_select_child.addEventListener('change',async(e)=>{
 
     // console.log(e.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling);
 
