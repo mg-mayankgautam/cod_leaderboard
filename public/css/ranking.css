@@ -189,7 +189,12 @@ background-color: white ;
     display: flex;
     justify-content: space-between ;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
+}
+
+.Team_Rankings, .player_Rankings{
+    font-weight: 100;
+    font-size: 30px;
 }
 
 .ranking_select_child{
@@ -230,9 +235,9 @@ background-color: white ;
     align-self: center;
     justify-self: center;
 }
-/* .table_head> .teamname{
-    justify-self: left;
-} */
+.table_head> .teamname{
+    text-align: left;
+}
 /* .table_head>div:hover{background-color: beige;} */
 
 .table_data{
@@ -258,9 +263,9 @@ background-color: white ;
     /* z-index: 1; */
     /* opacity: 100%; 
 } */
-/* .table_data> .teamname{
-    justify-self: left;
-} */
+.table_data> .teamname{
+    text-align: left;
+}
 /* .table_bg_logo{
     position: absolute;
     left: 5;
@@ -289,12 +294,12 @@ background-color: white ;
     align-self: center;
     justify-self: center;
 }
-/* .table_head_p> .teamname{
-    justify-self: left;
-} */
-/* .table_head_p> .playername{
-    justify-self: left;
-} */
+.table_head_p> .teamname{
+    text-align: left;
+} 
+ .table_head_p> .playername{
+    text-align: left;
+}
 
 .table_data_players{
     display: grid;
@@ -309,12 +314,12 @@ background-color: white ;
     align-self: center;
     justify-self: center;
 } */
-/* .table_data_players> .teamname{
-    /* justify-self: left; 
-} */
-/* .table_data_players> .playername{
-    justify-self: left;
-} */
+.table_data_players> .teamname{
+     text-align: left; 
+}
+.table_data_players> .playername{
+    text-align: left;
+}
 
 .table_head.responsive, .table_head_p.responsive{
     display: none;
@@ -385,5 +390,8 @@ background-color: white ;
     }
     .points_standing_heading{
         font-size: 50px;
+    }
+    .Team_Rankings, .player_Rankings{
+        font-size: 20px;
     }
 }

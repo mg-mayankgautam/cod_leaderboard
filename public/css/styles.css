@@ -78,7 +78,7 @@ h1{
     /* margin: 100px; */
     font-family: inherit;
     font-size: large;
-    font-weight: 700;
+    font-weight: 0;
     cursor: pointer;
 }
 
