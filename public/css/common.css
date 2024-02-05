@@ -50,7 +50,8 @@ h1{
 .nav_anchor {
     color: white;
     text-decoration: none;
-    font-size: medium;
+    font-size: 20px;
+    font-weight: 50;
 }
 
 .nav_anchor:hover{
