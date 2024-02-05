@@ -8,9 +8,11 @@ const Team_Rankings = document.querySelector('.Team_Rankings');
 const player_Rankings = document.querySelector('.player_Rankings');
 const white_div = document.querySelector('.white_div');
 const black_div = document.querySelector('.black_div');
+const logo_div= document.querySelector('.logo_div');
 
 const myTimeout = setTimeout(onloood, 1000);
-const myTimeout2=setTimeout(fade, 2000);
+const myTimeout2= setTimeout(fade, 2000);
+const myTimeout3 =  setTimeout(remove, 3000);
 
 function onloood(){
     white_div.classList.add('scaleup');
@@ -18,9 +20,19 @@ function onloood(){
 }
 
 function fade(){
+    black_div.style.opacity='0';
+    white_div.style.opacity='0';
+    logo_div.style.opacity='0';
+    // black_div.style.display='none';
+    // white_div.style.display='none';
+}
+
+function remove(){
     black_div.style.display='none';
     white_div.style.display='none';
+    logo_div.style.display='none';
 }
+
 Initial_ReloadData();
 
 

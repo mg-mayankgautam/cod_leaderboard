@@ -5,11 +5,28 @@ position: absolute;
 } */
 
 
+.logo_div{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    z-index: 60;
+    left: 50%;
+    right: 50%;
+}
+.logo{
+    width: 160px;
+    height: 160px;
+    /* transition: opacity 0.25s, visibility 0.25s; */
+    /* transition-property: opacity, visibility; */
+    /* transition-duration: 0.25s; */
+}
+
 .white_div{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
     background-color: rgb(255, 255, 255); 
     color: black;
      z-index:50; 
@@ -19,7 +36,7 @@ position: absolute;
     bottom:0%;
     right:0;
     left:50%;
-    transition: 500ms;
+    transition: left 500ms, opacity 500ms;
 }
 
 .scaleup{
@@ -27,12 +44,14 @@ position: absolute;
 }
 
 .scaledown{
-    right:100%;}
+    right:100%;
+}
 
 .black_div{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     background-color: rgb(0, 0, 0); 
     color: rgb(255, 255, 255);
@@ -45,6 +64,19 @@ position: absolute;
     left:0%;
 }
 
+.left_btn, .right_btn{
+    padding: 15px 15px;
+    border-radius: 7px;
+    /* margin: 100px; */
+    font-family: inherit;
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+}
+.right_btn{
+    background-color: black;
+    color: white;
+}
 
 
 
