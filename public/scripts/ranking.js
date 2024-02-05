@@ -6,9 +6,21 @@ const leaderboard_div_players = document.querySelector(".leaderboard_div_players
 const ranking_select_child = document.querySelector('.ranking_select');
 const Team_Rankings = document.querySelector('.Team_Rankings');
 const player_Rankings = document.querySelector('.player_Rankings');
+const white_div = document.querySelector('.white_div');
+const black_div = document.querySelector('.black_div');
 
+const myTimeout = setTimeout(onloood, 1000);
+const myTimeout2=setTimeout(fade, 2000);
 
+function onloood(){
+    white_div.classList.add('scaleup');
+    black_div.classList.add('scaledown');
+}
 
+function fade(){
+    black_div.style.display='none';
+    white_div.style.display='none';
+}
 Initial_ReloadData();
 
 
