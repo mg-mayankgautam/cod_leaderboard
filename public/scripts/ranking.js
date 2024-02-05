@@ -135,6 +135,26 @@ function addteamranking(data) {
         teamkills.innerText = teamranking[i].team_total_kills
         const totalpts = document.createElement('div');
         totalpts.innerText = teamranking[i].team_total_pts
+        //const datarow= document.createElement('div');
+
+        if(i%2==0){
+        rank.classList.add('odd');
+        team.classList.add('odd');
+        matchwins.classList.add('odd');
+        played_matches.classList.add('odd');
+        positionpts.classList.add('odd');
+        teamkills.classList.add('odd');
+        totalpts.classList.add('odd');
+        }
+        
+        rank.classList.add('entry');
+        team.classList.add('entry');
+        matchwins.classList.add('entry');
+        played_matches.classList.add('entry');
+        positionpts.classList.add('entry');
+        teamkills.classList.add('entry');
+        totalpts.classList.add('entry');
+
 
         table_data.appendChild(rank)
         table_data.appendChild(team)
@@ -143,6 +163,15 @@ function addteamranking(data) {
         table_data.appendChild(positionpts)
         table_data.appendChild(teamkills)
         table_data.appendChild(totalpts)
+        
+        // datarow.appendChild(rank)
+        // datarow.appendChild(team)
+        // datarow.appendChild(matchwins)
+        // datarow.appendChild(played_matches)
+        // datarow.appendChild(positionpts)
+        // datarow.appendChild(teamkills)
+        // datarow.appendChild(totalpts)
+        // table_data.appendChild(datarow);
 
         // console.log([i] , 1)
     }

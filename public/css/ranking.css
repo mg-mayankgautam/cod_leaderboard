@@ -1,11 +1,45 @@
+.body{background-color: white}
 
+/* .watermark{z-index: +1;
+position: absolute;
+} */
+
+.odd{background-color:rgba(140, 140, 140, 0.106)}
+
+.entry{display: flex;
+justify-content: center;
+}
 
 .ranking_body{
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     margin: 0px 0px 0px;
     gap: 20px;
+    background-color: white;
 }
+
+.ranking_page_header_div{min-height: 10vh;
+background-color: white ;
+
+}
+
+.ranking_page_ranks_div{
+    min-height: 100vh;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    /* padding-bottom: 10px; */
+    /* background-image: url(../utils/logo_hollow.jpg); */
+    background-size:contain ;
+}
+
+.points_standing_heading{
+    height: 100px; ;
+    color: black;
+font-size: 80px;
+padding-left: 20px;
+padding-top: 50px;}
 
 .scrims_div{
     display: flex;
@@ -69,6 +103,7 @@
 }
 
 .select_div{
+    background-color: black;
     display: flex;
     justify-content: space-between ;
     align-items: center;
@@ -89,6 +124,7 @@
 } */
 
 .leaderboard_div{
+    min-height: 100vh;
     flex-grow: 2;
     padding: 0 20px 20px;
     background-color: black;
@@ -112,30 +148,37 @@
     align-self: center;
     justify-self: center;
 }
-.table_head> .teamname{
+/* .table_head> .teamname{
     justify-self: left;
-}
+} */
 /* .table_head>div:hover{background-color: beige;} */
 
 .table_data{
     display: grid;
     grid-template-columns:  0.5fr 2.5fr 1fr 1fr 1fr 0.5fr 0.8fr ;
     grid-auto-rows: minmax(40px, auto) ;
-    grid-gap: 5px;
+    /* grid-gap: 5px; */
+    /* outline: solid 1px beige; */
+    
     /* position: relative; */
-    background-image: url(../utils/logo_hollow.jpg);
-    background-size:contain ;
+    /* background-image: url(../utils/logo_hollow.jpg); */
+   
     /* justify-content: center; */
 }
-.table_data>div{
-    align-self: center;
-    justify-self: center;
+
+/* .table_data>div{
+  
+        /* outline: solid 1px rgba(255, 255, 255, 0.271); */
+      
+      
+    /* align-self: center;
+    justify-self: center; */
     /* z-index: 1; */
-    /* opacity: 100%; */
-}
-.table_data> .teamname{
+    /* opacity: 100%; 
+} */
+/* .table_data> .teamname{
     justify-self: left;
-}
+} */
 /* .table_bg_logo{
     position: absolute;
     left: 5;
@@ -164,9 +207,9 @@
     align-self: center;
     justify-self: center;
 }
-.table_head_p> .teamname{
+/* .table_head_p> .teamname{
     justify-self: left;
-}
+} */
 .table_head_p> .playername{
     justify-self: left;
 }
@@ -184,9 +227,9 @@
     align-self: center;
     justify-self: center;
 }
-.table_data_players> .teamname{
-    justify-self: left;
-}
+/* .table_data_players> .teamname{
+    /* justify-self: left; 
+} */
 .table_data_players> .playername{
     justify-self: left;
 }
