@@ -10,6 +10,7 @@ const white_div = document.querySelector('.white_div');
 const black_div = document.querySelector('.black_div');
 const logo_div= document.querySelector('.logo_div');
 const right_btn = document.querySelector('.right_btn');
+const left_btn = document.querySelector('.left_btn');
 
 
 const myTimeout = setTimeout(onloood, 100);
@@ -20,6 +21,7 @@ function onloood(){
     white_div.classList.add('scaleup');
     black_div.classList.add('scaledown');
     right_btn.classList.add('btn_fade');
+    left_btn.classList.add('btn_fade');
 }
 
 function fade(){
