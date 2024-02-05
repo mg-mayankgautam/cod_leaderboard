@@ -59,6 +59,11 @@ h1{
     color: rgb(8, 108, 78);
 }
 
+.nav_anchor .nav_active{
+    color: rgb(8, 108, 78);
+    text-decoration: underline;
+}
+
 .logo_nav{
     /* width: 100px; */
     /* justify-self: ; */
