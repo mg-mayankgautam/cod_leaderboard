@@ -254,6 +254,20 @@ function addplayerranking(data){
         const damage = document.createElement('div');
         damage.innerText = playerranking[i].damage;
 
+        if(i%2==0){
+            rank.classList.add('odd');
+            player.classList.add('odd');
+            teamname.classList.add('odd');
+            kills.classList.add('odd');
+            damage.classList.add('odd');
+            }
+            
+            rank.classList.add('entry');
+            player.classList.add('entry');
+            teamname.classList.add('entry');
+            kills.classList.add('entry');
+            damage.classList.add('entry');
+
         table_data_players.appendChild(rank);
         table_data_players.appendChild(player);
         table_data_players.appendChild(teamname);

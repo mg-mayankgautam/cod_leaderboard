@@ -70,7 +70,7 @@ position: absolute;
     /* margin: 100px; */
     font-family: inherit;
     font-size: large;
-    font-weight: 700;
+    font-weight: 0;
     cursor: pointer;
     transition: opacity 200ms;
 }
@@ -89,6 +89,7 @@ position: absolute;
 
 .entry{display: flex;
 justify-content: center;
+align-items: center;
 }
 
 .ranking_body{
@@ -99,10 +100,9 @@ justify-content: center;
     background-color: white;
 }
 
-.ranking_page_header_div{min-height: 10vh;
+/* .ranking_page_header_div{min-height: 10vh;
 background-color: white ;
-
-}
+} */
 
 .ranking_page_ranks_div{
     min-height: 100vh;
@@ -118,9 +118,10 @@ background-color: white ;
 .points_standing_heading{
     height: 100px; ;
     color: black;
-font-size: 80px;
-padding-left: 20px;
-padding-top: 50px;}
+    font-size: 80px;
+    padding-left: 20px;
+    padding-top: 50px;
+}
 
 .scrims_div{
     display: flex;
@@ -291,29 +292,29 @@ padding-top: 50px;}
 /* .table_head_p> .teamname{
     justify-self: left;
 } */
-.table_head_p> .playername{
+/* .table_head_p> .playername{
     justify-self: left;
-}
+} */
 
 .table_data_players{
     display: grid;
     grid-template-columns: 0.5fr 3fr 3fr 1fr 1fr;
     grid-auto-rows: minmax(40px, auto) ;
-    grid-gap: 5px;
-    background-image: url(../utils/logo_hollow.jpg);
-    background-size:contain ;
+    /* grid-gap: 5px; */
+    /* background-image: url(../utils/logo_hollow.jpg); */
+    /* background-size:contain ; */
     /* justify-content: center; */
 }
-.table_data_players>div{
+/* .table_data_players>div{
     align-self: center;
     justify-self: center;
-}
+} */
 /* .table_data_players> .teamname{
     /* justify-self: left; 
 } */
-.table_data_players> .playername{
+/* .table_data_players> .playername{
     justify-self: left;
-}
+} */
 
 .table_head.responsive, .table_head_p.responsive{
     display: none;
@@ -360,6 +361,12 @@ padding-top: 50px;}
     }
 }
 
+@media(max-width:480px){
+    .points_standing_heading{
+        font-size: 60px;
+    }
+}
+
 @media(max-width:430px){
     .select_div{
         font-size: smaller;
@@ -375,5 +382,8 @@ padding-top: 50px;}
 
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .points_standing_heading{
+        font-size: 50px;
     }
 }
