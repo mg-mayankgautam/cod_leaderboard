@@ -10,9 +10,9 @@ const white_div = document.querySelector('.white_div');
 const black_div = document.querySelector('.black_div');
 const logo_div= document.querySelector('.logo_div');
 
-const myTimeout = setTimeout(onloood, 1000);
-const myTimeout2= setTimeout(fade, 2000);
-const myTimeout3 =  setTimeout(remove, 3000);
+const myTimeout = setTimeout(onloood, 100);
+const myTimeout2= setTimeout(fade, 1000);
+const myTimeout3 =  setTimeout(remove,2000);
 
 function onloood(){
     white_div.classList.add('scaleup');
