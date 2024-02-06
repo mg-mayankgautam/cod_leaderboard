@@ -62,6 +62,7 @@ position: absolute;
     bottom:0%;
     right:50%;
     left:0%;
+    transition: left 500ms, opacity 500ms;
 }
 
 .left_btn, .right_btn{
@@ -409,4 +410,37 @@ background-color: white ;
     }
 }
 
-
+@media(orientation:portrait) {
+    .white_div{
+        top:50%;
+        bottom:0;
+        right:0;
+        left:0;
+        transition: top 500ms;
+        font-size: smaller;
+    }
+    .black_div{
+        top:0;
+        bottom:50%;
+        right:0;
+        left:0;
+        transition: bottom 500ms;
+        font-size: smaller;
+    }
+    .scaleup{
+        top:0;
+    }
+    
+    .scaledown{
+        bottom:100%;
+    }
+    .logo_div{
+        bottom:50%;
+        top:50%;
+        align-items: center;
+        transition: top 500ms;
+    }
+    .scaleupp{
+        top: 0;
+    }
+}

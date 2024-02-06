@@ -20,6 +20,7 @@ const myTimeout3 =  setTimeout(remove,2000);
 function onloood(){
     white_div.classList.add('scaleup');
     black_div.classList.add('scaledown');
+    logo_div.classList.add('scaleupp');
     right_btn.classList.add('btn_fade');
     left_btn.classList.add('btn_fade');
 }
