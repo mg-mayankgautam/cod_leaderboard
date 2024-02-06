@@ -332,21 +332,25 @@ background-color: white ;
     display: none;
 }
 
-/* .teamname{
+.teamname{
     position: relative;
+    cursor: pointer;
 }
 .teamplayer_info{
     position: absolute;
+    height: 200px;
+    min-width:500px;
     display: none;
     flex-direction: column;
     padding: 5px 5px;
-    left: 110%;
-    top: 5px;
+    /* left: 110%; */
+     top: 0; 
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     width: max-content;
     border-radius: 1px;
-} */
+    z-index:100;
+} 
 
 
 
@@ -389,6 +393,8 @@ background-color: white ;
     }
 }
 
+
+
 @media(max-width:380px){
     .scrims, .select_div,.leaderboard_div, .leaderboard_div_players {
 
@@ -402,3 +408,5 @@ background-color: white ;
         font-size: 20px;
     }
 }
+
+

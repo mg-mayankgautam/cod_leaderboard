@@ -152,8 +152,11 @@ function addteamranking(data) {
         const rank = document.createElement('div');
         rank.innerText  = Number([i])+ Number(1)
         const team = document.createElement('div');
-        team.innerText= teamranking[i].teamname
-        team.className= 'teamname';
+        const teampara = document.createElement('p');
+        teampara.innerText= teamranking[i].teamname;
+        //team.innerText= teamranking[i].teamname
+        team.appendChild(teampara);
+        teampara.className= 'teamname';
         const matchwins = document.createElement('div');
         matchwins.innerText = teamranking[i].team_wins;
         const played_matches = document.createElement('div');
@@ -317,39 +320,82 @@ ranking_select_child.addEventListener('change',async(e)=>{
 })
 
 
-// table_data.addEventListener('mouseover', async(e)=>{
-//    if(e.target.className==='teamname'){
 
+
+// document.querySelector('.teamname').addEventListener("e", mouseEnter);
+
+// async function mouseEnter() {
+//     if(e.target.className=='teamname' ){
+//         console.log(e.target)
+//         const div = await addplayerinfohover(e.target);
+//         div.style.display = 'flex';
+//   }
+// }
+const teamname = document.querySelectorAll('.teamname');
+
+console.log(teamname);
+
+// teamname.addEventListener('mouseEnter', async (e)=>{
+//    if(e.target.className=='teamname' ){
+//     console.log(e.target)
 //     const div = await addplayerinfohover(e.target);
 //     div.style.display = 'flex';
-
+//     //player_info.classList.add('teamname');
+//    // console.log(div)
 //    }
-//    else{
-//     // const player_info= document.getElementsByClassName('teamplayer_info');
-//     // player_info.style.display='none'
-// }
+
+
+//    console.log(e.target)
+   
 // });
 
+// document.addEventListener('mouseover', (e)=>{
+//   console.log(e.target.className);
+//     if(e.target.className!=='teamname'){
 
-// async function addplayerinfohover(team){
-//     var selected= document.querySelector('.selected');
-//     const data = await getPlayersData(selected.innerText);
-    
-//     const playerdata = data.data.filter( (p)=> {return p.teamname === team.innerText} )
-
-//     const player_info= document.createElement('div');
-//     player_info.className='teamplayer_info';
-//     player_info.id= team.innerText;
-    
-//     for(let i=0; i<playerdata.length; i++){
-//         const player = document.createElement('div');
-//         player.innerText=playerdata[i].member_name;
-//         player_info.appendChild(player);
+//         player_info.innerHTML = '';
+//     player_info.style.display = 'none';
 //     }
 
-//     team.appendChild(player_info);
-//     return player_info;
-// }
+
+// });
+document.querySelector('.teamname');
+
+document.addEventListener('mouseout', ()=>{
+  //  document.querySelector('.teamname');
+    
+    player_info.innerHTML = '';
+    // if(player_info.outerHTML){
+    // player_info.outerHTML = "";}
+
+    player_info.style.display = 'none';
+    //teamname.removechildren;
+});
+
+
+const player_info= document.createElement('div');
+
+
+
+async function addplayerinfohover(team){
+    var selected= document.querySelector('.selected');
+    const data = await getPlayersData(selected.innerText);
+    
+    const playerdata = data.data.filter( (p)=> {return p.teamname === team.innerText} )
+
+   
+    player_info.classList.add('teamplayer_info');
+    // player_info.id= team.innerText;
+    
+    for(let i=0; i<playerdata.length; i++){
+        const player = document.createElement('div');
+        player.innerText=playerdata[i].member_name;
+        player_info.appendChild(player);
+    }
+
+    team.appendChild(player_info);
+    return player_info;
+}
 
 
 // table_data.addEventListener('mouseout', async(e)=>{ 
