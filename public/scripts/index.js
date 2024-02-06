@@ -1,4 +1,4 @@
-const swup = new Swup();
+// const swup = new Swup();
 // const left_btn= document.querySelector('.left_btn');
 // const right_btn= document.querySelector('.right_btn');
 // const logo= document.querySelector('.logo');

@@ -4,12 +4,14 @@ const scrimDB = require('../models/scrimDB')
 const team_scrimDB = require('../models/team_scrimDB')
 
 module.exports.getRankings = async(req,res)=>{
-    console.log(req.query.rank);
-   if(req.query.rank=='all'){
-    res.render('ranking',{
+    // console.log(req.query.rank);
+//    if(req.query.rank=='all'){
+//     res.render('ranking',{
 
-     });
-    }}
+//      });
+//     }
+    res.render('ranking2')
+}
 
 
 module.exports.getscrimdata= async(req,res)=>{

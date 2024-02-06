@@ -6,42 +6,7 @@ const leaderboard_div_players = document.querySelector(".leaderboard_div_players
 const ranking_select_child = document.querySelector('.ranking_select');
 const Team_Rankings = document.querySelector('.Team_Rankings');
 const player_Rankings = document.querySelector('.player_Rankings');
-const white_div = document.querySelector('.white_div');
-const black_div = document.querySelector('.black_div');
-const logo_div= document.querySelector('.logo_div');
-const right_btn = document.querySelector('.right_btn');
-const left_btn = document.querySelector('.left_btn');
 
-// const demourl = window.location.host;
-// console.log(demourl);
-
-const myTimeout = setTimeout(onloood, 100);
-const myTimeout2= setTimeout(fade, 1000);
-const myTimeout3 =  setTimeout(remove,2000);
-
-function onloood(){
-    white_div.classList.add('scaleup');
-    black_div.classList.add('scaledown');
-    logo_div.classList.add('scaleupp');
-    right_btn.classList.add('btn_fade');
-    left_btn.classList.add('btn_fade');
-}
-
-function fade(){
-    black_div.style.opacity='0';
-    white_div.style.opacity='0';
-    logo_div.style.opacity='0';
-    // black_div.style.display='none';
-    // white_div.style.display='none';
-}
-
-function remove(){
-    black_div.style.display='none';
-    white_div.style.display='none';
-    logo_div.style.display='none';
-
-    // location.replace('/rankings');
-}
 
 Initial_ReloadData();
 
