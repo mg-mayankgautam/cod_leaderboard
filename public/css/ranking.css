@@ -142,7 +142,6 @@ background-color: white ;
 }
 
 .scrims{
-   
     overflow-x:scroll;
     /* scrollbar-di:none; */
     display: flex;
@@ -163,13 +162,14 @@ background-color: white ;
     font-weight: bold;
     /* text-align: center; */
     height: 100%;
-    width: 200px;
+    min-width: 100px;
+    max-width: max-content;
     /* border-top-right-radius: 10px;
     border-top-left-radius: 10px; */
     /* background-color: white; */
     /* border-radius: 10px; */
     /* border- ; */
-    /* padding: 5px 10px; */
+    padding: 5px 10px;
     /* box-shadow: rgba(0, 0, 0, 0.386); */
     /* border: 8px solid black; */
     transition: transform 100ms;
@@ -377,16 +377,16 @@ background-color: white ;
     }
 }
 
-@media(max-width:600px) {
+/* @media(max-width:600px) { */
     
-    .scrims{
-        font-size: small;
-    }
-}
+    
 
 @media(max-width:480px){
     .points_standing_heading{
         font-size: 60px;
+    }
+    .scrims{
+        font-size: small;
     }
 }
 
