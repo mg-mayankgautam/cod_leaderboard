@@ -1,9 +1,12 @@
 
 .about_body{
     display: flex;
-    height: 70vh;
+    /* bottom: 10;
+    position: relative; */
+    min-height: 100%;
+    /* min-height: 75svh; */
     flex-direction: column;
-    gap: 80px;
+    gap: 70px;
     margin: 50px 20px;
     justify-content: center;
     align-items: center;
@@ -11,21 +14,23 @@
 
 .tagline{
     text-align: center;
-    font-size: xx-large;
-    width: 50%;
+    font-size: 40px;
+    /* width: 50%; */
 }
 
 .tagline_meaning{
     text-align: center;
-    font-size: large;
-    width: 90%;
+    font-size: 25px;
+    width: 80%;
 }
 
 .contact_us{
     display: flex;
+    flex-direction: column;
     gap: 20px;
     align-items: center;
 }
+.follow_us{font-size: 25px;}
 
 .icons_list{
     display: flex;
@@ -36,20 +41,38 @@
     /* width: 20px; */
 }
 
-@media(max-width:450px){
+
+@media(max-width:850px){
+    .about_body{gap: 60px;}
+}
+
+@media(max-width:770px){
+    .tagline_meaning{
+        width: 95%;
+        font-size: 20px;
+    }
     .tagline{
-        font-size: x-large;
-        width: 75%;
+        font-size: 35px;
+    }
+}
+
+@media(orientation=portrait){
+    .tagline{
+        font-size: 22px;
+        /* width: 75%; */
     }
     .tagline_meaning{
-        font-size: small;
-        width: 99%;
+        font-size: 18px;
+        width: 100%;
     }
     .about_body{
-        gap: 50px;
+        gap: 70px;
         margin: 25px 20px;
     }
-    .contact_us{
-        flex-direction: column;
+    .follow_us{
+        font-size: 18px;
+    }
+    .icons{
+        height: 30px;
     }
 }
