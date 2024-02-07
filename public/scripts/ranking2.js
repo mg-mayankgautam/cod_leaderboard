@@ -1,3 +1,4 @@
+// const nav_separator = document.querySelector('.nav_separator');
 const scrims_page = document.querySelector('.scrims');
 const table_data = document.querySelector('.table_data')
 const table_data_players = document.querySelector('.table_data_players');

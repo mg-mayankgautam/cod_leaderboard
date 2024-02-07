@@ -339,7 +339,7 @@ background-color: white ;
     display: none;
 }
 
-.teamname{
+/* .teamname{
     position: relative;
     cursor: pointer;
 }
@@ -349,15 +349,15 @@ background-color: white ;
     min-width:500px;
     display: none;
     flex-direction: column;
-    padding: 5px 5px;
+    padding: 5px 5px;*/
     /* left: 110%; */
-     top: 0; 
+     /* top: 0; 
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     width: max-content;
     border-radius: 1px;
     z-index:100;
-} 
+}   */
 
 
 
