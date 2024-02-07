@@ -112,7 +112,7 @@ background-color: white ;
 } */
 
 .ranking_page_ranks_div{
-    /* min-height: 100vh; */
+    min-height: 60vh;
     background-color: white;
     padding-left: 15px;
     padding-right: 15px;
@@ -225,7 +225,7 @@ background-color: white ;
 } */
 
 .leaderboard_div{
-    /* min-height: 100vh; */
+    height: 100%;
     flex-grow: 2;
     padding: 0 20px 20px;
     background-color: black;
@@ -291,12 +291,13 @@ background-color: white ;
     padding: 0 20px 20px;
     background-color: black;
     color: white;
+    height: 100%;
     /* border-radius: 3px; */
 }
 
 .table_head_p{
     display: grid;
-    grid-template-columns: 0.5fr 3fr 3fr 1fr 1fr;
+    grid-template-columns: 0.8fr 3fr 3fr 1fr 1fr;
     grid-auto-rows: minmax(40px, auto) ;
     grid-gap: 5px;
     /* justify-content: center; */
@@ -317,7 +318,7 @@ background-color: white ;
 
 .table_data_players{
     display: grid;
-    grid-template-columns: 0.5fr 3fr 3fr 1fr 1fr;
+    grid-template-columns: 0.8fr 3fr 3fr 1fr 1fr;
     grid-auto-rows: minmax(40px, auto) ;
     /* grid-gap: 5px; */
     /* background-image: url(../utils/logo_hollow.jpg); */

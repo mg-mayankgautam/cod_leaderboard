@@ -3,8 +3,8 @@
     display: flex;
     /* bottom: 10;
     position: relative; */
-    min-height: 75vh;
-    min-height: 75svh;
+    min-height: 100%;
+    /* min-height: 75svh; */
     flex-direction: column;
     gap: 70px;
     margin: 50px 20px;
