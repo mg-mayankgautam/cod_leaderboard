@@ -420,7 +420,7 @@ background-color: white ;
 
 @media(orientation:portrait) {
     .white_div{
-        top:50%;
+        /* top:50%; */
         top:50svh;
         bottom:0;
         right:0;
@@ -430,7 +430,7 @@ background-color: white ;
     }
     .black_div{
         top:0;
-        bottom:50%;
+        /* bottom:50%; */
         bottom: 50svh;
         right:0;
         left:0;
@@ -445,9 +445,9 @@ background-color: white ;
         bottom:100%;
     }
     .logo_div{
-        bottom: 50%;
+        /* bottom: 50%; */
         bottom:50svh;
-        top: 50%;
+        /* top: 50%; */
         top:50svh;
         align-items: center;
         transition: top 500ms;
