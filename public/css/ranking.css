@@ -159,10 +159,10 @@ background-color: white ;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-weight: bold;
+    font-size:18px;
     /* text-align: center; */
     height: 100%;
-    min-width: 100px;
+    min-width: 150px;
     max-width: max-content;
     /* border-top-right-radius: 10px;
     border-top-left-radius: 10px; */
@@ -377,16 +377,18 @@ background-color: white ;
     }
 }
 
-/* @media(max-width:600px) { */
-    
-    
+@media(max-width:600px) {
+    .scrims>div{
+        min-width: 100px;
+    }
+} 
 
 @media(max-width:480px){
     .points_standing_heading{
         font-size: 60px;
     }
-    .scrims{
-        font-size: small;
+    .scrims>div{
+        font-size: 16px;
     }
 }
 
@@ -403,7 +405,7 @@ background-color: white ;
 
 
 @media(max-width:380px){
-    .scrims, .select_div,.leaderboard_div, .leaderboard_div_players {
+     .select_div,.leaderboard_div, .leaderboard_div_players {
 
         padding-left: 10px;
         padding-right: 10px;
