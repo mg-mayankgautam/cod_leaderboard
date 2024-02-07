@@ -236,7 +236,7 @@ background-color: white ;
 
 .table_head{
     display: grid;
-    grid-template-columns: 0.5fr 2.5fr 1fr 1fr 1fr 0.5fr 0.8fr ;
+    grid-template-columns: 0.8fr 2.5fr 1fr 1fr 1fr 0.5fr 0.8fr ;
     grid-auto-rows: minmax(40px, auto) ;
     grid-gap: 5px;
     /* justify-content: center; */
@@ -256,7 +256,7 @@ background-color: white ;
 
 .table_data{
     display: grid;
-    grid-template-columns:  0.5fr 2.5fr 1fr 1fr 1fr 0.5fr 0.8fr ;
+    grid-template-columns:  0.8fr 2.5fr 1fr 1fr 1fr 0.5fr 0.8fr ;
     grid-auto-rows: minmax(40px, auto) ;
     /* grid-gap: 5px; */
     /* outline: solid 1px beige; */
@@ -407,8 +407,8 @@ background-color: white ;
 @media(max-width:380px){
      .select_div,.leaderboard_div, .leaderboard_div_players {
 
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     .points_standing_heading{
         font-size: 50px;
