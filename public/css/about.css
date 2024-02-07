@@ -3,7 +3,7 @@
     display: flex;
     /* bottom: 10;
     position: relative; */
-    min-height: 100%;
+    min-height: 75svh;
     /* min-height: 75svh; */
     flex-direction: column;
     gap: 70px;
