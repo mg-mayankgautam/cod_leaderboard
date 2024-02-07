@@ -18,7 +18,7 @@ const left_btn = document.querySelector('.left_btn');
 const myTimeout = setTimeout(onloood, 100);
 const myTimeout2= setTimeout(fade, 1000);
 // const myTimeout3= setTimeout(reroute, 100);
-const myTimeout4 =  setTimeout(remove,1500);
+const myTimeout4 =  setTimeout(remove,1100);
 
 function onloood(){
     white_div.classList.add('scaleup');
