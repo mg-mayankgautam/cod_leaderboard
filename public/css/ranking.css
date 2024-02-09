@@ -72,7 +72,7 @@ position: absolute;
 }
 
 .left_btn, .right_btn{
-    padding: 15px 15px;
+    padding: 10px 15px;
     border-radius: 7px;
     /* margin: 100px; */
     font-family: inherit;
@@ -112,12 +112,13 @@ background-color: white ;
 } */
 
 .ranking_page_ranks_div{
-    min-height: 60vh;
+    /* min-height: 60vh; */
     background-color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.252), 0 6px 20px 0 rgba(0, 0, 0, 0.222);
     /* background-image: url(../utils/logo_hollow.jpg); */
     background-size:contain ;
 }
@@ -219,13 +220,11 @@ background-color: white ;
     padding: 5px 10px;
     font-family: inherit;
     /* height: 30px; */
+    cursor: pointer;
 }
-/* .ranking_select_child:{
-    outline-color: rgb(8, 108, 78);
-} */
 
 .leaderboard_div{
-    height: 100%;
+    min-height: 60vh;
     flex-grow: 2;
     padding: 0 20px 20px;
     background-color: black;
@@ -291,7 +290,7 @@ background-color: white ;
     padding: 0 20px 20px;
     background-color: black;
     color: white;
-    height: 100%;
+    min-height: 60vh;
     /* border-radius: 3px; */
 }
 
