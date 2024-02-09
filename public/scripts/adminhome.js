@@ -74,13 +74,13 @@ const delete_member_scrim = document.querySelector('.delete_member_scrim');
 
 
 manage_scrim_btn.addEventListener('click',()=>{
-    manage_scrim_div.style.display="block";
+    manage_scrim_div.style.display="flex";
     manage_team_div.style.display="none";
 })
 
 manage_team_btn.addEventListener('click',()=>{
     manage_scrim_div.style.display="none";
-    manage_team_div.style.display="block";
+    manage_team_div.style.display="flex";
 
 })
 
