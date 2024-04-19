@@ -38,7 +38,8 @@ module.exports.addteam = async(req, res) => {
 
 module.exports.getteam = async(req, res) => {
 
-    const scrimname = req.query.scrimname
+    if(req.session.authorised) {
+        const scrimname = req.query.scrimname
     
     const allTeams=await teamDB.find({});
     // const uniqueTeams = await teamDB.distinct("teamname")
@@ -54,5 +55,5 @@ module.exports.getteam = async(req, res) => {
        }  
     }
 
-    res.send(allTeams);
+    res.send(allTeams);}
 }
